@@ -931,13 +931,13 @@ body {
   line-height: 1.35;
 }
 
-/* ===== CIRCULAR ORBITAL SCENE ===== */
+/* Photo Column */
 .hero-photo-column {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  margin-top: 0;
+  margin-top: -55px;
 }
 
 /* The scene container — everything is positioned relative to this */
@@ -1161,7 +1161,7 @@ body {
   50%       { transform: translateX(-50%) translateY(-8px); }
 }
 
-/* ---- old frame compat rules ---- */
+/* ---- Photo Card Frame (restored) ---- */
 .photo-card-frame {
   position: relative;
   width: 100%;
@@ -1170,8 +1170,17 @@ body {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 12px;
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
   transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
+}
+
+[data-theme="dark"] .photo-card-frame {
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.photo-card-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(37, 99, 235, 0.25);
 }
 
 .photo-inner {
@@ -1182,6 +1191,37 @@ body {
   border-radius: 14px;
   overflow: hidden;
   background: #0f172a;
+  display: flex;
+}
+
+/* Avatar style — circle image inside the card */
+.avatar-inner {
+  aspect-ratio: 1 / 1;
+  max-height: 420px;
+  border-radius: 50%;
+  margin: 12px auto;
+  width: calc(100% - 24px);
+  border: 4px solid var(--bg-card);
+  box-shadow: 0 0 0 2px var(--border-color), 0 12px 30px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .avatar-inner {
+  border-color: rgba(19, 27, 46, 1);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.hero-avatar-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
+
+/* Restore photo-inner display rule */
+.photo-inner-flex-start {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1221,12 +1261,12 @@ body {
 .ai-frame::before {
   content: '';
   position: absolute;
-  inset: -4px;
-  border-radius: 50%;
+  inset: -3px;
+  border-radius: calc(var(--radius-lg) + 3px);
   background: conic-gradient(#6366f1, #06b6d4, #8b5cf6, #10b981, #f97316, #6366f1);
   animation: ai-border-spin 3s linear infinite;
   z-index: -1;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .ai-frame > * {
