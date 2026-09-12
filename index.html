@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aajera Banu S — Cloud & DevOps Engineer. Building reliable cloud infrastructure, automated CI/CD pipelines, and training next-gen engineers." />
+  <meta name="keywords" content="Aajera Banu, DevOps Engineer, Cloud Engineer, AWS, Terraform, Docker, Jenkins, GitHub Actions, CCNA, Salem, Data Science" />
+  <meta name="author" content="Aajera Banu S" />
+  <title>Aajera Banu S — Cloud & DevOps Engineer</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Dashboard Event Notification Alert Banner -->
+  <div id="dashboard-event-alert" class="dashboard-event-alert" role="alert">
+    <div class="site-container alert-inner">
+      <div class="alert-content">
+        <span class="live-dot-pulse"></span>
+        <span class="alert-text"><strong>📢 Upcoming Workshop:</strong> AWS Cloud & DevOps 3-Day Intensive Bootcamp at LIVEWIRE Salem. Registrations Open!</span>
+      </div>
+      <div class="alert-actions">
+        <a href="events.html" class="alert-link-btn">View Events Page <i class="fa-solid fa-arrow-right"></i></a>
+        <button id="close-event-alert" class="alert-dismiss-btn" aria-label="Dismiss notification"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header id="site-header" class="site-header">
+    <div class="site-container header-inner">
+      <a href="#hero" class="brand-link" aria-label="Aajera Banu Portfolio">
+        <span class="brand-avatar-mini">
+          <img src="assets/images/profile.jpg" alt="Aajera" />
+        </span>
+        <span class="brand-name">Aajera Banu S</span>
+        <span class="brand-badge">DevOps</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#pipeline" class="nav-link">CI/CD Demo</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#blogs" class="nav-link">Publications</a>
+        <a href="events.html" class="nav-link nav-link-highlight" title="Explore Workshops & Speaking Events">
+          <span>Events</span>
+          <span class="nav-event-badge">New</span>
+        </a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Direct External Blog Link -->
+        <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="blog-pill-btn" title="Containers & Coffee — DevOps thoughts, brewed fresh daily">
+          <span class="coffee-icon">☕</span>
+          <span>Blog</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <!-- Notification Bell Dropdown Button -->
+        <button id="notif-bell-btn" class="notif-bell-btn" aria-label="View Event Notifications" title="Event Announcements">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-badge-dot"></span>
+        </button>
+
+        <!-- Light / Dark Mode Toggle Button -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle theme">
+          <i class="fa-solid fa-moon dark-icon"></i>
+          <i class="fa-solid fa-sun light-icon"></i>
+        </button>
+
+        <button id="open-resume-btn" class="btn-primary-outline" aria-label="View Resume">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Resume</span>
+        </button>
+        
+        <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/aajerabanu/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Dropdown Popover -->
+  <div id="notif-dropdown" class="notif-dropdown">
+    <div class="notif-header">
+      <h4><i class="fa-solid fa-bell text-accent"></i> Dashboard Notifications</h4>
+      <span class="notif-count">1 Live Alert</span>
+    </div>
+    <div class="notif-list">
+      <a href="events.html" class="notif-item unread text-decoration-none">
+        <div class="notif-item-icon bg-accent-light"><i class="fa-solid fa-chalkboard-user text-accent"></i></div>
+        <div class="notif-item-body">
+          <p class="notif-item-title">AWS & DevOps 3-Day Intensive Bootcamp</p>
+          <span class="notif-item-meta">LIVEWIRE Salem · Registrations Open now!</span>
+        </div>
+      </a>
+      <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="notif-item text-decoration-none">
+        <div class="notif-item-icon"><span class="coffee-emoji-sm">☕</span></div>
+        <div class="notif-item-body">
+          <p class="notif-item-title">Containers & Coffee Publication Live</p>
+          <span class="notif-item-meta">Read fresh DevOps articles on the blog ↗</span>
+        </div>
+      </a>
+    </div>
+    <div class="notif-footer">
+      <a href="events.html" class="btn-ghost-link text-accent">
+        <i class="fa-solid fa-calendar-days"></i> View All Events & Workshops →
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="mobile-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">Navigation</div>
+      <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-nav">
+      <a href="#about" class="drawer-link">About</a>
+      <a href="#skills" class="drawer-link">Skills & Stack</a>
+      <a href="#projects" class="drawer-link">Featured Projects</a>
+      <a href="#pipeline" class="drawer-link">Live CI/CD Demo</a>
+      <a href="#experience" class="drawer-link">Experience & Education</a>
+      <a href="#blogs" class="drawer-link">Technical Publications</a>
+      <a href="events.html" class="drawer-link drawer-link-active">
+        <span>📢 Events & Workshops</span>
+        <span class="nav-event-badge">New</span>
+      </a>
+      <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="drawer-link drawer-link-highlight">
+        <span>☕ Containers & Coffee (Live Blog)</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="#contact" class="drawer-link">Get in Touch</a>
+      <div class="drawer-action">
+        <button id="drawer-resume-btn" class="btn-primary w-full">View Full Resume</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="site-container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Empowering Vision, Authority & Key Metrics -->
+          <div class="hero-content">
+            <div class="availability-badge">
+              <i class="fa-solid fa-chalkboard-user text-accent"></i>
+              <span>Training, Speaking & Community Workshops</span>
+            </div>
+
+            <h1 class="hero-title">
+              Empowering the Next Generation of <span class="text-gradient">Cloud & Network Engineers</span>
+            </h1>
+
+            <p class="hero-lead">
+              Hands-on technical bootcamps, Cisco CCNA labs, university symposium keynotes, and enterprise cloud workshops conducted by <strong>Aajera Banu S</strong>.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn-primary rsvp-trigger-btn" data-event-title="AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Register for Next Workshop</span>
+              </button>
+              <a href="#contact" class="btn-secondary">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Invite for Guest Lecture / Corporate Training</span>
+              </a>
+              <a href="#projects" class="btn-outline">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Projects</span>
+              </a>
+            </div>
+
+            <!-- Key 4 Metrics -->
+            <div class="hero-stats-row hero-stats-four">
+              <div class="stat-box">
+                <span class="stat-title">450+</span>
+                <span class="stat-subtitle">Students & Engineers Trained</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-title">15+</span>
+                <span class="stat-subtitle">Live Hands-on Labs & Workshops</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-title">100%</span>
+                <span class="stat-subtitle">Practical, Code-Driven Curriculum</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-title">5/5</span>
+                <span class="stat-subtitle">Participant Rating & Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: BIG, Beautiful Photo Frame -->
+          <div class="hero-photo-column">
+            <div class="photo-card-frame">
+              <div class="photo-inner">
+                <img src="assets/images/profile.jpg" alt="Aajera Banu S — Cloud & DevOps Engineer" class="hero-big-photo" />
+              </div>
+              
+              <!-- Floating Pill Card on Photo -->
+              <div class="photo-info-card">
+                <div class="info-card-avatar">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                  <h3 class="info-card-name">Aajera Banu S</h3>
+                  <p class="info-card-role">AWS & Networking Trainer @ LIVEWIRE</p>
+                </div>
+              </div>
+
+              <!-- Quick Tech Pills -->
+              <div class="floating-pill pill-aws">
+                <i class="fa-brands fa-aws"></i> AWS Cloud
+              </div>
+              <div class="floating-pill pill-docker">
+                <i class="fa-brands fa-docker"></i> Docker
+              </div>
+              <div class="floating-pill pill-terraform">
+                <i class="fa-solid fa-cubes"></i> Terraform
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="section-intro">
+          <span class="sub-heading">About Me</span>
+          <h2 class="main-heading">Bridging Analytical Rigor with Cloud Automation</h2>
+        </div>
+
+        <div class="about-card-grid">
+          <div class="about-story-card">
+            <h3 class="card-title">My Journey & Philosophy</h3>
+            <p>
+              I believe great infrastructure should be predictable, automated, and resilient. My work centers on designing automated cloud workflows using <strong>Terraform (IaC)</strong>, containerizing applications with <strong>Docker</strong>, and establishing zero-touch <strong>CI/CD pipelines with Jenkins and GitHub Actions</strong>.
+            </p>
+            <p>
+              Currently, as an <strong>AWS and Networking Trainer at LIVEWIRE</strong>, I train engineering students in cloud architecture (EC2, S3, VPC, IAM) and Cisco CCNA networking (routing, switching, subnetting, VLANs). Teaching foundational concepts daily has strengthened my understanding of system architecture from the ground up.
+            </p>
+            <p>
+              Alongside DevOps, my background in <strong>MSc Data Science at Periyar University</strong> trains me to approach infrastructure telemetry, system monitoring, and automation logic with structured analytical rigor.
+            </p>
+
+            <div class="story-highlights">
+              <div class="highlight-point">
+                <i class="fa-solid fa-check text-accent"></i>
+                <span>Automating multi-tier AWS environments using modular Terraform code</span>
+              </div>
+              <div class="highlight-point">
+                <i class="fa-solid fa-check text-accent"></i>
+                <span>Building automated CI/CD delivery pipelines from GitHub commit to cluster</span>
+              </div>
+              <div class="highlight-point">
+                <i class="fa-solid fa-check text-accent"></i>
+                <span>Configuring hardened Nginx reverse proxies with SSL/TLS and load balancing</span>
+              </div>
+              <div class="highlight-point">
+                <i class="fa-solid fa-check text-accent"></i>
+                <span>Deep Cisco CCNA networking expertise (routing, subnetting, TCP/IP, VLANs)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards -->
+          <div class="about-feature-column">
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fa-brands fa-aws"></i></div>
+              <div>
+                <h4 class="feature-title">Cloud Infrastructure (AWS)</h4>
+                <p class="feature-desc">Architecting secure VPCs, EC2 compute instances, S3 storage buckets, and IAM role-based access controls.</p>
+              </div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fa-solid fa-infinity"></i></div>
+              <div>
+                <h4 class="feature-title">CI/CD & Containerization</h4>
+                <p class="feature-desc">Multi-stage Docker builds, Jenkins automation pipelines, and GitHub Actions workflows for rapid, reliable releases.</p>
+              </div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <div>
+                <h4 class="feature-title">Networking & CCNA</h4>
+                <p class="feature-desc">Routing protocols, subnet calculations, VLAN segmentation, and packet troubleshooting in active lab topologies.</p>
+              </div>
+            </div>
+
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div>
+                <h4 class="feature-title">Data Science & Analytics</h4>
+                <p class="feature-desc">Analytical problem-solving and structured algorithmic reasoning from Periyar University's MSc program.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="section-padding">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Technical Stack</span>
+          <h2 class="main-heading">Skills & Technologies</h2>
+          <p class="section-desc">Tools and technologies I use daily to build, automate, and monitor systems.</p>
+        </div>
+
+        <div class="skills-card-grid">
+          <!-- Skill Category 1 -->
+          <div class="skill-category-box">
+            <div class="cat-top">
+              <i class="fa-brands fa-aws cat-icon"></i>
+              <h3 class="cat-title">Cloud Computing (AWS)</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Amazon EC2</span>
+              <span class="skill-pill">Amazon S3</span>
+              <span class="skill-pill">AWS VPC</span>
+              <span class="skill-pill">AWS IAM & Roles</span>
+              <span class="skill-pill">Security Groups</span>
+              <span class="skill-pill">Route 53 DNS</span>
+              <span class="skill-pill">CloudWatch</span>
+              <span class="skill-pill">Elastic Load Balancer</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 2 -->
+          <div class="skill-category-box">
+            <div class="cat-top">
+              <i class="fa-brands fa-docker cat-icon"></i>
+              <h3 class="cat-title">DevOps & Automation</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Docker Containerization</span>
+              <span class="skill-pill">Terraform (IaC)</span>
+              <span class="skill-pill">Jenkins CI/CD</span>
+              <span class="skill-pill">GitHub Actions</span>
+              <span class="skill-pill">Docker Compose</span>
+              <span class="skill-pill">Kubernetes Basics</span>
+              <span class="skill-pill">Git Version Control</span>
+              <span class="skill-pill">Webhook Automation</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 3 -->
+          <div class="skill-category-box">
+            <div class="cat-top">
+              <i class="fa-solid fa-network-wired cat-icon"></i>
+              <h3 class="cat-title">Networking & CCNA</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Routing & Switching</span>
+              <span class="skill-pill">Subnetting & CIDR</span>
+              <span class="skill-pill">VLANs & Trunking</span>
+              <span class="skill-pill">TCP/IP & OSI Models</span>
+              <span class="skill-pill">NAT & Gateways</span>
+              <span class="skill-pill">Access Control Lists (ACLs)</span>
+              <span class="skill-pill">Packet Tracer Labs</span>
+              <span class="skill-pill">Network Diagnostics</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 4 -->
+          <div class="skill-category-box">
+            <div class="cat-top">
+              <i class="fa-brands fa-linux cat-icon"></i>
+              <h3 class="cat-title">Linux, Web & Scripting</h3>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Linux Administration</span>
+              <span class="skill-pill">Bash Shell Scripting</span>
+              <span class="skill-pill">Nginx Reverse Proxy</span>
+              <span class="skill-pill">SSL/TLS Certificates</span>
+              <span class="skill-pill">Node.js Backends</span>
+              <span class="skill-pill">Python & Data Analytics</span>
+              <span class="skill-pill">Systemd Services</span>
+              <span class="skill-pill">Service Monitoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE CI/CD PIPELINE SIMULATOR -->
+    <section id="pipeline" class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Interactive Workflow</span>
+          <h2 class="main-heading">Live CI/CD Pipeline Simulator</h2>
+          <p class="section-desc">Experience an automated deployment cycle from code commit to AWS production.</p>
+        </div>
+
+        <div class="pipeline-simulator-card">
+          <div class="sim-header">
+            <div class="sim-repo-info">
+              <span class="repo-badge"><i class="fa-brands fa-github"></i> aajera/cloud-infrastructure</span>
+              <span class="branch-badge"><i class="fa-solid fa-code-branch"></i> main</span>
+            </div>
+            <button id="trigger-pipeline-btn" class="btn-primary btn-sm">
+              <i class="fa-solid fa-play"></i>
+              <span>Trigger Pipeline Run</span>
+            </button>
+          </div>
+
+          <!-- Pipeline Visual Nodes -->
+          <div class="pipeline-visual-track">
+            <div class="pipe-node" id="node-1">
+              <div class="node-circle"><i class="fa-brands fa-github"></i></div>
+              <div class="node-title">1. Git Push</div>
+              <div class="node-badge-status">Ready</div>
+            </div>
+            <div class="node-bar"></div>
+
+            <div class="pipe-node" id="node-2">
+              <div class="node-circle"><i class="fa-solid fa-vial-circle-check"></i></div>
+              <div class="node-title">2. Lint & Test</div>
+              <div class="node-badge-status">Queued</div>
+            </div>
+            <div class="node-bar"></div>
+
+            <div class="pipe-node" id="node-3">
+              <div class="node-circle"><i class="fa-brands fa-docker"></i></div>
+              <div class="node-title">3. Docker Build</div>
+              <div class="node-badge-status">Queued</div>
+            </div>
+            <div class="node-bar"></div>
+
+            <div class="pipe-node" id="node-4">
+              <div class="node-circle"><i class="fa-solid fa-cubes"></i></div>
+              <div class="node-title">4. Terraform IaC</div>
+              <div class="node-badge-status">Queued</div>
+            </div>
+            <div class="node-bar"></div>
+
+            <div class="pipe-node" id="node-5">
+              <div class="node-circle"><i class="fa-brands fa-aws"></i></div>
+              <div class="node-title">5. AWS Cluster</div>
+              <div class="node-badge-status">Queued</div>
+            </div>
+          </div>
+
+          <!-- Console Output Window -->
+          <div class="sim-console">
+            <div class="console-titlebar">
+              <div class="console-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="console-title">deployment-runner@aws-node-01: ~/workspace</span>
+            </div>
+            <div id="pipeline-stream" class="console-body">
+              <div class="log-entry dim">[System] Pipeline ready. Click "Trigger Pipeline Run" above to simulate real deployment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects" class="section-padding">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Featured Projects</span>
+          <h2 class="main-heading">Infrastructure & DevOps Case Studies</h2>
+          <p class="section-desc">Real-world implementations in cloud automation, microservices, and network engineering.</p>
+        </div>
+
+        <div class="projects-display-grid">
+          <!-- Project 1 -->
+          <article class="project-showcase-card">
+            <div class="project-media-wrap">
+              <img src="assets/images/project-terraform.jpg" alt="AWS Multi-Tier Infrastructure as Code with Terraform" class="project-img" />
+              <span class="media-category-tag">AWS & Terraform</span>
+            </div>
+            <div class="project-details">
+              <div class="project-tag-list">
+                <span class="tag-pill">AWS VPC</span>
+                <span class="tag-pill">Terraform</span>
+                <span class="tag-pill">EC2 & S3</span>
+                <span class="tag-pill">IaC</span>
+              </div>
+              <h3 class="project-card-title">AWS Multi-Tier Infrastructure as Code with Terraform</h3>
+              <p class="project-card-summary">
+                Architected and automated an enterprise AWS cloud topology using modular Terraform code. Configured dedicated VPC, public/private subnets across multiple AZs, NAT Gateways, EC2 instances, S3 storage buckets, and remote state locking.
+              </p>
+              <ul class="project-bullet-list">
+                <li>Automated cloud provisioning eliminating configuration drift.</li>
+                <li>Isolated private subnets for secure backend workloads.</li>
+                <li>Remote S3 state backend with DynamoDB locking.</li>
+              </ul>
+              <div class="project-card-actions">
+                <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="btn-primary-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> View GitHub Repository
+                </a>
+                <button class="btn-ghost-link project-modal-btn" data-project="terraform">
+                  <i class="fa-solid fa-circle-info"></i> Architecture Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-showcase-card">
+            <div class="project-media-wrap">
+              <img src="assets/images/project-cicd.jpg" alt="Automated CI/CD Pipeline for Microservices" class="project-img" />
+              <span class="media-category-tag">CI/CD & Docker</span>
+            </div>
+            <div class="project-details">
+              <div class="project-tag-list">
+                <span class="tag-pill">Docker</span>
+                <span class="tag-pill">Jenkins</span>
+                <span class="tag-pill">GitHub Actions</span>
+                <span class="tag-pill">Node.js</span>
+              </div>
+              <h3 class="project-card-title">End-to-End Automated CI/CD Pipeline for Microservices</h3>
+              <p class="project-card-summary">
+                Designed a continuous integration and automated deployment pipeline for containerized backend services. Integrated automated linting, unit test execution, multi-stage Docker builds, container vulnerability checks, and automated registry push on GitHub webhooks.
+              </p>
+              <ul class="project-bullet-list">
+                <li>Multi-stage Docker builds minimizing production image sizes (&lt;40MB).</li>
+                <li>Automated pipeline execution triggered on code commits and PR merges.</li>
+                <li>Automated deployment verification and health telemetry.</li>
+              </ul>
+              <div class="project-card-actions">
+                <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="btn-primary-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> View GitHub Repository
+                </a>
+                <button class="btn-ghost-link project-modal-btn" data-project="cicd">
+                  <i class="fa-solid fa-circle-info"></i> Architecture Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-showcase-card">
+            <div class="project-media-wrap">
+              <img src="assets/images/project-nginx.jpg" alt="Nginx Reverse Proxy & Multi-Service Stack" class="project-img" />
+              <span class="media-category-tag">Nginx & Docker</span>
+            </div>
+            <div class="project-details">
+              <div class="project-tag-list">
+                <span class="tag-pill">Nginx</span>
+                <span class="tag-pill">Docker Compose</span>
+                <span class="tag-pill">SSL/TLS</span>
+                <span class="tag-pill">Load Balancing</span>
+              </div>
+              <h3 class="project-card-title">High-Availability Nginx Reverse Proxy & Multi-Service Stack</h3>
+              <p class="project-card-summary">
+                Configured a production-grade Nginx reverse proxy and API Gateway managing traffic across multi-container Docker environments. Implemented SSL/TLS termination, custom load balancing algorithms, rate limiting, and real-time backend service health monitoring.
+              </p>
+              <ul class="project-bullet-list">
+                <li>Reverse proxy routing with dynamic upstream load balancing.</li>
+                <li>Hardened security configuration with TLS 1.3 and security headers.</li>
+                <li>Multi-service orchestration managed via Docker Compose.</li>
+              </ul>
+              <div class="project-card-actions">
+                <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="btn-primary-outline btn-sm">
+                  <i class="fa-brands fa-github"></i> View GitHub Repository
+                </a>
+                <button class="btn-ghost-link project-modal-btn" data-project="nginx">
+                  <i class="fa-solid fa-circle-info"></i> Architecture Details
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION -->
+    <section id="experience" class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Career & Academics</span>
+          <h2 class="main-heading">Experience & Qualifications</h2>
+        </div>
+
+        <div class="timeline-two-column">
+          <!-- Work Experience Column -->
+          <div class="timeline-col">
+            <div class="col-head">
+              <i class="fa-solid fa-briefcase"></i>
+              <h3>Work Experience</h3>
+            </div>
+
+            <div class="timeline-cards">
+              <div class="timeline-entry-card">
+                <div class="entry-header">
+                  <span class="entry-period active-period">June 2026 – Present</span>
+                  <span class="entry-loc"><i class="fa-solid fa-location-dot"></i> Salem, India</span>
+                </div>
+                <h4 class="entry-title">AWS and Networking Trainer</h4>
+                <div class="entry-company">LIVEWIRE Salem</div>
+                <p class="entry-text">
+                  Training students and young engineers in AWS Cloud Computing and Cisco CCNA networking through theory and hands-on laboratory exercises.
+                </p>
+                <ul class="entry-points">
+                  <li>Delivering practical labs on EC2, S3, VPC, IAM, and CloudWatch.</li>
+                  <li>Teaching routing, switching, subnetting, TCP/IP, and VLAN segmentation.</li>
+                  <li>Assisting students with real-world infrastructure debugging and certification prep.</li>
+                </ul>
+              </div>
+
+              <div class="timeline-entry-card">
+                <div class="entry-header">
+                  <span class="entry-period">January 2026 – March 2026</span>
+                  <span class="entry-loc"><i class="fa-solid fa-location-dot"></i> Salem, India</span>
+                </div>
+                <h4 class="entry-title">Cloud Engineer Intern</h4>
+                <div class="entry-company">Codec Technologies India</div>
+                <p class="entry-text">
+                  Assisted in cloud infrastructure provisioning, Linux server administration, containerized application deployment workflows, and service health monitoring.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Column -->
+          <div class="timeline-col">
+            <div class="col-head">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <h3>Education & Degrees</h3>
+            </div>
+
+            <div class="timeline-cards">
+              <div class="timeline-entry-card">
+                <div class="entry-header">
+                  <span class="entry-period">June 2024 – April 2026</span>
+                  <span class="entry-loc"><i class="fa-solid fa-location-dot"></i> Salem, India</span>
+                </div>
+                <h4 class="entry-title">Master of Science (MS) in Data Science</h4>
+                <div class="entry-company">Periyar University</div>
+                <p class="entry-text">
+                  Advanced studies focusing on analytical modeling, statistical data analysis, data engineering algorithms, and structured problem-solving workflows directly applicable to complex infrastructure telemetry and automated systems.
+                </p>
+              </div>
+
+              <div class="timeline-entry-card">
+                <div class="entry-header">
+                  <span class="entry-period">June 2020 – May 2023</span>
+                  <span class="entry-loc"><i class="fa-solid fa-location-dot"></i> Salem, India</span>
+                </div>
+                <h4 class="entry-title">Bachelor of Science (BS) in Mathematics & Computer Science</h4>
+                <div class="entry-company">Government Arts College for Women, Salem-8</div>
+                <p class="entry-text">
+                  Undergraduate foundation covering discrete mathematics, computer science fundamentals, programming logic, data structures, and computer networking concepts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOGS & TECHNICAL ARTICLES SECTION -->
+    <section id="blogs" class="section-padding">
+      <div class="site-container">
+        <div class="section-intro">
+          <span class="sub-heading">Engineering Blog & Publications</span>
+          <h2 class="main-heading">Containers & Coffee & Technical Insights</h2>
+          <p class="section-desc">DevOps thoughts, architectural patterns, and hands-on tutorials covering AWS, Docker, Kubernetes, Terraform, and Cisco Networking.</p>
+        </div>
+
+        <!-- Containers & Coffee Publication Spotlight Banner -->
+        <div class="blog-publication-banner">
+          <div class="banner-coffee-icon">
+            <span class="coffee-emoji">☕</span>
+            <div class="steam-ring"></div>
+          </div>
+          <div class="banner-content">
+            <div class="banner-badge-row">
+              <span class="banner-live-badge"><i class="fa-solid fa-circle-dot"></i> Official Publication</span>
+              <span class="banner-domain">containersandcoffee.tech</span>
+            </div>
+            <h3 class="banner-title">Containers & Coffee — DevOps thoughts, brewed fresh daily</h3>
+            <p class="banner-desc">
+              My dedicated engineering blog covering Docker containers, Kubernetes orchestration, CI/CD automation, AWS cloud architectures, and the espresso that powers every late-night deployment.
+            </p>
+            <div class="banner-actions">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span class="btn-coffee-emoji">☕</span>
+                <span>Visit containersandcoffee.tech</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <span class="banner-subtext"><i class="fa-solid fa-bolt text-accent"></i> New articles on Docker, CI/CD & Cloud published regularly</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="blog-filters">
+          <button class="filter-pill active" data-filter="all">All Articles</button>
+          <button class="filter-pill" data-filter="aws">AWS & Cloud</button>
+          <button class="filter-pill" data-filter="devops">CI/CD & DevOps</button>
+          <button class="filter-pill" data-filter="iac">Infrastructure as Code</button>
+          <button class="filter-pill" data-filter="networking">Networking & CCNA</button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-cards-grid">
+          
+          <!-- Article 1 -->
+          <article class="blog-card" data-category="aws">
+            <div class="blog-card-header">
+              <span class="blog-badge badge-aws"><i class="fa-brands fa-aws"></i> AWS Architecture</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+            </div>
+            <div class="blog-date"><i class="fa-regular fa-calendar"></i> August 2024 · containersandcoffee.tech</div>
+            <h3 class="blog-title">AWS Multi-AZ VPC Architecture: Designing Fault-Tolerant Enterprise Networks</h3>
+            <p class="blog-excerpt">
+              A comprehensive blueprint for architecting isolated public and private subnets across multiple Availability Zones, configuring highly available NAT Gateways, and managing least-privilege Network ACLs and Security Groups.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-item">#AWS</span>
+              <span class="tag-item">#VPC</span>
+              <span class="tag-item">#Networking</span>
+              <span class="tag-item">#Security</span>
+            </div>
+            <div class="blog-footer">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-primary-xs">
+                <span>Read on Containers & Coffee</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="btn-ghost-link read-article-btn" data-article="vpc-architecture" title="Quick overview in modal">
+                <span>Quick View</span>
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card" data-category="devops">
+            <div class="blog-card-header">
+              <span class="blog-badge badge-docker"><i class="fa-brands fa-docker"></i> CI/CD & Containers</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 8 min read</span>
+            </div>
+            <div class="blog-date"><i class="fa-regular fa-calendar"></i> July 2024 · containersandcoffee.tech</div>
+            <h3 class="blog-title">Zero-Downtime Blue-Green Deployment with Docker, Nginx & GitHub Actions</h3>
+            <p class="blog-excerpt">
+              Step-by-step implementation of an automated continuous deployment pipeline that compiles multi-stage Docker containers, verifies container health checks, and hot-reloads Nginx upstream configurations with 0% downtime.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-item">#Docker</span>
+              <span class="tag-item">#Nginx</span>
+              <span class="tag-item">#GitHubActions</span>
+              <span class="tag-item">#ZeroDowntime</span>
+            </div>
+            <div class="blog-footer">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-primary-xs">
+                <span>Read on Containers & Coffee</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="btn-ghost-link read-article-btn" data-article="blue-green" title="Quick overview in modal">
+                <span>Quick View</span>
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card" data-category="iac">
+            <div class="blog-card-header">
+              <span class="blog-badge badge-terraform"><i class="fa-solid fa-cubes"></i> Terraform IaC</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 7 min read</span>
+            </div>
+            <div class="blog-date"><i class="fa-regular fa-calendar"></i> May 2024 · containersandcoffee.tech</div>
+            <h3 class="blog-title">Production Terraform: Remote S3 State, DynamoDB Locks & Modular Design</h3>
+            <p class="blog-excerpt">
+              How to structure enterprise Terraform repositories to prevent concurrency race conditions, maintain encrypted state histories in AWS S3, and design reusable parameter-driven infrastructure modules across environments.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-item">#Terraform</span>
+              <span class="tag-item">#IaC</span>
+              <span class="tag-item">#DynamoDB</span>
+              <span class="tag-item">#CloudAutomation</span>
+            </div>
+            <div class="blog-footer">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-primary-xs">
+                <span>Read on Containers & Coffee</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="btn-ghost-link read-article-btn" data-article="terraform-production" title="Quick overview in modal">
+                <span>Quick View</span>
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="blog-card" data-category="networking">
+            <div class="blog-card-header">
+              <span class="blog-badge badge-cisco"><i class="fa-solid fa-network-wired"></i> Networking / CCNA</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+            </div>
+            <div class="blog-date"><i class="fa-regular fa-calendar"></i> March 2024 · containersandcoffee.tech</div>
+            <h3 class="blog-title">CCNA to Cloud: Why Networking Fundamentals are a DevOps Superpower</h3>
+            <p class="blog-excerpt">
+              Why mastering IP subnetting, CIDR calculations, OSI layers, DNS resolution, and TCP/IP flows allows DevOps engineers to diagnose container mesh routing and cloud ingress bottlenecks 10x faster.
+            </p>
+            <div class="blog-tags">
+              <span class="tag-item">#CCNA</span>
+              <span class="tag-item">#Subnetting</span>
+              <span class="tag-item">#Routing</span>
+              <span class="tag-item">#DevOpsFundamentals</span>
+            </div>
+            <div class="blog-footer">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-primary-xs">
+                <span>Read on Containers & Coffee</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="btn-ghost-link read-article-btn" data-article="ccna-devops" title="Quick overview in modal">
+                <span>Quick View</span>
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS & WORKSHOPS SECTION -->
+    <section id="events" class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="section-intro">
+          <span class="sub-heading">Community & Mentorship</span>
+          <h2 class="main-heading">Events, Workshops & Speaking</h2>
+          <p class="section-desc">Empowering students and tech aspirants with real-world hands-on cloud skills, live architecture labs, and industry mentorship.</p>
+        </div>
+
+        <div class="events-cards-grid">
+
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-top-bar">
+              <span class="event-type-badge badge-livewire"><i class="fa-solid fa-chalkboard-user"></i> Hands-on Workshop</span>
+              <span class="event-date-pill"><i class="fa-regular fa-calendar-check"></i> June 2024</span>
+            </div>
+            <h3 class="event-title">AWS Cloud & DevOps 3-Day Intensive Bootcamp</h3>
+            <div class="event-location-row">
+              <span class="event-loc"><i class="fa-solid fa-location-dot"></i> LIVEWIRE Salem Center</span>
+              <span class="event-audience"><i class="fa-solid fa-users"></i> 150+ Students & Job Seekers</span>
+            </div>
+            <p class="event-desc">
+              Conducted an intensive 3-day training bootcamp covering AWS Compute (EC2), VPC Networking, Docker container deployment, and CI/CD workflow automation for aspiring cloud engineers.
+            </p>
+            <div class="event-key-points">
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Live hands-on AWS console & CLI provisioning</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Dockerized Node.js app deployment with Nginx</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> 1-on-1 resume & career roadmap mentoring</div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-top-bar">
+              <span class="event-type-badge badge-cisco"><i class="fa-solid fa-network-wired"></i> Technical Masterclass</span>
+              <span class="event-date-pill"><i class="fa-regular fa-calendar-check"></i> April 2024</span>
+            </div>
+            <h3 class="event-title">Cisco CCNA Networking & Packet Tracer Masterclass</h3>
+            <div class="event-location-row">
+              <span class="event-loc"><i class="fa-solid fa-location-dot"></i> LIVEWIRE Technology Center</span>
+              <span class="event-audience"><i class="fa-solid fa-users"></i> 90+ Engineering Candidates</span>
+            </div>
+            <p class="event-desc">
+              Led a masterclass on Cisco networking fundamentals, VLSM subnetting calculations, switch VLAN trunking, and simulated enterprise routing topologies using Cisco Packet Tracer.
+            </p>
+            <div class="event-key-points">
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Interactive IPv4 subnetting speed drills</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> OSPF & EIGRP dynamic routing protocol labs</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Real-world network troubleshooting methodology</div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-top-bar">
+              <span class="event-type-badge badge-speaker"><i class="fa-solid fa-microphone-lines"></i> Keynote & Guest Speaker</span>
+              <span class="event-date-pill"><i class="fa-regular fa-calendar-check"></i> February 2024</span>
+            </div>
+            <h3 class="event-title">Breaking into Cloud & DevOps: Roadmap for Computer Science Graduates</h3>
+            <div class="event-location-row">
+              <span class="event-loc"><i class="fa-solid fa-location-dot"></i> College Tech Symposium, Salem</span>
+              <span class="event-audience"><i class="fa-solid fa-users"></i> 200+ Undergraduate Students</span>
+            </div>
+            <p class="event-desc">
+              Invited as guest speaker to guide college students on transitioning from academic programming to production cloud infrastructure, modern DevOps tooling, and open-source contributions.
+            </p>
+            <div class="event-key-points">
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Demystifying the Cloud & DevOps career landscape</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> How to build a demonstrable GitHub portfolio</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Interactive Q&A on certification preparation</div>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="event-card">
+            <div class="event-top-bar">
+              <span class="event-type-badge badge-research"><i class="fa-solid fa-brain"></i> Tech Presentation</span>
+              <span class="event-date-pill"><i class="fa-regular fa-calendar-check"></i> October 2024</span>
+            </div>
+            <h3 class="event-title">Cloud Telemetry & Anomaly Detection for Data Pipelines</h3>
+            <div class="event-location-row">
+              <span class="event-loc"><i class="fa-solid fa-location-dot"></i> Periyar University Tech Forum</span>
+              <span class="event-audience"><i class="fa-solid fa-users"></i> MSc Data Science Cohort & Faculty</span>
+            </div>
+            <p class="event-desc">
+              Presented research findings on combining cloud infrastructure monitoring metrics (AWS CloudWatch, Prometheus) with time-series machine learning models for proactive anomaly alerting.
+            </p>
+            <div class="event-key-points">
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Infrastructure metrics aggregation architecture</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Automated alert dispatch via SNS & Webhooks</div>
+              <div class="point-item"><i class="fa-solid fa-check text-accent"></i> Data Science applications in DevOps Site Reliability</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dedicated Events Page Action Banner -->
+        <div class="events-explore-banner">
+          <div class="explore-banner-content">
+            <div class="banner-tag"><i class="fa-solid fa-sparkles text-accent"></i> Full Workshop Schedule & Syllabi</div>
+            <h3 class="explore-banner-title">Explore All 6+ Workshops, Keynotes & Live Cohorts</h3>
+            <p class="explore-banner-desc">
+              View comprehensive module syllabi, attendee feedback from LIVEWIRE batches, and reserve your seat for upcoming AWS and CCNA training programs.
+            </p>
+          </div>
+          <div class="explore-banner-action">
+            <a href="events.html" class="btn-primary">
+              <span>View Dedicated Events Page</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Get in Touch</span>
+          <h2 class="main-heading">Let's Connect & Collaborate</h2>
+          <p class="section-desc">Interested in discussing DevOps engineering opportunities, cloud projects, or technical mentoring?</p>
+        </div>
+
+        <div class="contact-split-grid">
+          <!-- Info Column -->
+          <div class="contact-cards-col">
+            <div class="contact-info-card">
+              <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">Email Address</span>
+                <a href="mailto:aajera.banu05@gmail.com" class="contact-card-link">aajera.banu05@gmail.com</a>
+              </div>
+              <button id="copy-email-btn" class="copy-action-btn" title="Copy email to clipboard">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">LinkedIn Profile</span>
+                <a href="https://www.linkedin.com/in/aajerabanu/" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+                  linkedin.com/in/aajerabanu
+                </a>
+              </div>
+              <a href="https://www.linkedin.com/in/aajerabanu/" target="_blank" rel="noopener noreferrer" class="copy-action-btn" title="Open LinkedIn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-card-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">GitHub Profile</span>
+                <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+                  github.com/aajerabanu0508
+                </a>
+              </div>
+              <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" class="copy-action-btn" title="Open GitHub">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-card-body">
+                <span class="contact-card-label">Location</span>
+                <span class="contact-card-static">Salem, Tamil Nadu, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-col">
+            <div class="contact-form-container">
+              <h3 class="form-title">Send a Direct Message</h3>
+              <p class="form-subtitle">Drop a note directly to Aajera's inbox.</p>
+
+              <form id="contact-form" class="human-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="form-name">Your Name</label>
+                    <input type="text" id="form-name" required placeholder="e.g. Alex Morgan" />
+                  </div>
+                  <div class="form-group">
+                    <label for="form-email">Your Email</label>
+                    <input type="email" id="form-email" required placeholder="e.g. alex@company.com" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-subject">Subject</label>
+                  <input type="text" id="form-subject" required placeholder="e.g. Cloud / DevOps Role or Project Inquiry" />
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message">Message</label>
+                  <textarea id="form-message" rows="4" required placeholder="Hello Aajera, I would like to connect regarding..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-container footer-content">
+      <div class="footer-left">
+        <a href="#hero" class="brand-link">
+          <span class="brand-name">Aajera Banu S</span>
+        </a>
+        <p class="footer-tagline">Cloud & DevOps Engineer • Salem, Tamil Nadu, India</p>
+      </div>
+
+      <div class="footer-nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#pipeline">CI/CD Demo</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-social-links">
+        <a href="https://www.linkedin.com/in/aajerabanu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/aajerabanu0508" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:aajera.banu05@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="site-container bottom-flex">
+        <span>&copy; <span id="year-span">2026</span> Aajera Banu S. All rights reserved.</span>
+        <span>Built with clarity, purpose & high performance.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RESUME / CV MODAL -->
+  <div id="resume-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header-bar">
+        <div class="modal-title-text">
+          <i class="fa-solid fa-file-lines text-accent"></i>
+          <span>Curriculum Vitae — Aajera Banu S</span>
+        </div>
+        <div class="modal-header-actions">
+          <button id="print-cv-btn" class="btn-primary-outline btn-sm"><i class="fa-solid fa-print"></i> Print</button>
+          <button id="close-resume-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+
+      <div class="modal-body-scroll" id="printable-cv-document">
+        <div class="resume-paper">
+          <!-- Resume Header -->
+          <div class="r-head">
+            <div class="r-head-main">
+              <h1 class="r-name">AAJERA BANU S</h1>
+              <div class="r-subtitle">DevOps & Cloud Enthusiast | Docker • Jenkins • GitHub Actions • Terraform • AWS</div>
+              <div class="r-location">Salem, Tamil Nadu, India</div>
+            </div>
+            <div class="r-head-links">
+              <div>Email: <a href="mailto:aajera.banu05@gmail.com">aajera.banu05@gmail.com</a></div>
+              <div>LinkedIn: <a href="https://www.linkedin.com/in/aajerabanu/" target="_blank">linkedin.com/in/aajerabanu</a></div>
+              <div>GitHub: <a href="https://github.com/aajerabanu0508" target="_blank">github.com/aajerabanu0508</a></div>
+            </div>
+          </div>
+
+          <hr class="r-line" />
+
+          <!-- Summary -->
+          <div class="r-section">
+            <h2 class="r-section-heading">PROFESSIONAL SUMMARY</h2>
+            <p class="r-paragraph">
+              Hands-on DevOps, Cloud, and Infrastructure Automation practitioner focused on CI/CD pipelines, containerization, and modern deployment workflows. Experience with Docker containerization, Jenkins & GitHub Actions CI/CD pipelines, Linux administration, Terraform infrastructure provisioning, AWS cloud fundamentals (EC2, S3, VPC, IAM), and Nginx reverse proxy configuration. Academic background in MSc Data Science from Periyar University providing structured, analytical workflow optimization. Seeking opportunities to contribute to real-world engineering environments as a DevOps or Cloud Engineer.
+            </p>
+          </div>
+
+          <!-- Skills -->
+          <div class="r-section">
+            <h2 class="r-section-heading">CORE TECHNICAL SKILLS</h2>
+            <div class="r-skills-matrix">
+              <div><strong>Cloud Computing:</strong> Amazon Web Services (AWS - EC2, S3, VPC, IAM, Route 53, CloudWatch, ALB)</div>
+              <div><strong>DevOps & CI/CD:</strong> Docker, Docker Compose, Jenkins, GitHub Actions, Kubernetes Fundamentals</div>
+              <div><strong>Infrastructure as Code:</strong> Terraform, Cloud Architecture Automation</div>
+              <div><strong>Networking:</strong> Cisco CCNA (Routing, Switching, Subnetting, TCP/IP, VLANs, NAT, ACLs)</div>
+              <div><strong>Web & Servers:</strong> Nginx Reverse Proxy, SSL/TLS Termination, Load Balancing</div>
+              <div><strong>Scripting & OS:</strong> Linux Administration (Ubuntu/Debian), Bash Shell Scripting, Git, Python</div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="r-section">
+            <h2 class="r-section-heading">WORK EXPERIENCE</h2>
+            <div class="r-entry">
+              <div class="r-entry-top">
+                <span class="r-role">AWS and Networking Trainer</span>
+                <span class="r-date">June 2026 – Present</span>
+              </div>
+              <div class="r-org">LIVEWIRE Salem — Salem, Tamil Nadu</div>
+              <ul class="r-bullets">
+                <li>Trained students in AWS Cloud and Cisco CCNA networking curriculum through theory and hands-on laboratory exercises.</li>
+                <li>Guided learners in core networking concepts including routing, switching, subnetting, TCP/IP, VLANs, and firewall configurations.</li>
+                <li>Delivered practical labs on AWS services including EC2 instance management, S3 storage, VPC configuration, and IAM access controls.</li>
+                <li>Assisted students with troubleshooting live network topologies and preparation for industry certification exams.</li>
+              </ul>
+            </div>
+
+            <div class="r-entry">
+              <div class="r-entry-top">
+                <span class="r-role">Cloud Engineer Intern</span>
+                <span class="r-date">January 2026 – March 2026</span>
+              </div>
+              <div class="r-org">Codec Technologies India — Salem, Tamil Nadu</div>
+              <ul class="r-bullets">
+                <li>Supported cloud infrastructure provisioning and server deployment automation workflows.</li>
+                <li>Assisted with containerized application deployments using Docker and basic CI/CD pipeline triggers.</li>
+                <li>Monitored Linux server performance and assisted with system diagnostics and service configuration.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="r-section">
+            <h2 class="r-section-heading">EDUCATION</h2>
+            <div class="r-entry">
+              <div class="r-entry-top">
+                <span class="r-role">Master of Science (MS) in Data Science</span>
+                <span class="r-date">June 2024 – April 2026</span>
+              </div>
+              <div class="r-org">Periyar University, Salem</div>
+            </div>
+
+            <div class="r-entry">
+              <div class="r-entry-top">
+                <span class="r-role">Bachelor of Science (BS) in Mathematics & Computer Science</span>
+                <span class="r-date">June 2020 – May 2023</span>
+              </div>
+              <div class="r-org">Government Arts College for Women, Salem-8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE MODAL -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-compact">
+      <div class="modal-header-bar">
+        <h3 id="modal-project-title" class="modal-title-text text-accent">Architecture Details</h3>
+        <button id="close-project-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll" id="modal-project-content">
+        <!-- Dynamic content injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE / BLOG MODAL -->
+  <div id="article-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-readable">
+      <div class="modal-header-bar">
+        <div class="modal-title-wrap">
+          <span id="modal-article-category" class="modal-cat-badge">Article</span>
+          <h3 id="modal-article-title" class="modal-title-text">Article Deep Dive</h3>
+        </div>
+        <button id="close-article-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll article-reader-content" id="modal-article-content">
+        <!-- Dynamic content injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP / EVENT REGISTRATION MODAL -->
+  <div id="rsvp-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-compact">
+      <div class="modal-header-bar">
+        <div>
+          <span class="modal-cat-badge">Event Registration</span>
+          <h3 id="modal-rsvp-title" class="modal-title-text text-accent">Register for Workshop</h3>
+        </div>
+        <button id="close-rsvp-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll">
+        <form id="rsvp-form" class="rsvp-form">
+          <div class="form-group">
+            <label for="rsvp-name">Full Name *</label>
+            <input type="text" id="rsvp-name" required placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-email">Email Address *</label>
+            <input type="email" id="rsvp-email" required placeholder="your.email@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-phone">Phone / WhatsApp Number</label>
+            <input type="tel" id="rsvp-phone" placeholder="+91 98765 43210" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-event-select">Selected Event / Workshop</label>
+            <input type="text" id="rsvp-event-select" readonly value="AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-notes">Institution / Current Role & Questions</label>
+            <textarea id="rsvp-notes" rows="3" placeholder="Tell us about your college, background or specific topics you want covered..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Submit Registration Request</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT SYLLABUS DETAILS MODAL -->
+  <div id="syllabus-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-readable">
+      <div class="modal-header-bar">
+        <div>
+          <span id="modal-syllabus-cat" class="modal-cat-badge">Workshop Syllabus</span>
+          <h3 id="modal-syllabus-title" class="modal-title-text">Event Details</h3>
+        </div>
+        <button id="close-syllabus-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll article-reader-content" id="modal-syllabus-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="toast-popup"></div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

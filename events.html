@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events & Workshops — Aajera Banu S | Cloud & DevOps Trainer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore workshops, CCNA masterclasses, AWS bootcamps, and technical speaking events led by Aajera Banu S across institutions and technology centers." />
+  <meta name="keywords" content="Aajera Banu, AWS Workshops, DevOps Bootcamps, LIVEWIRE Salem, Cisco CCNA Trainer, Cloud Mentorship, Technical Speaker" />
+  <meta name="author" content="Aajera Banu S" />
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Notification Bar -->
+  <div id="events-top-banner" class="events-top-banner">
+    <div class="site-container top-banner-inner">
+      <div class="banner-left">
+        <span class="live-dot-pulse"></span>
+        <span class="banner-msg"><strong>Upcoming Workshop:</strong> AWS Cloud & CI/CD 3-Day Intensive Bootcamp at LIVEWIRE Salem. Registrations Open!</span>
+      </div>
+      <div class="banner-right">
+        <button id="open-rsvp-top-btn" class="banner-action-btn">RSVP / Inquire</button>
+        <button id="dismiss-top-banner" class="banner-close-btn" aria-label="Dismiss banner"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header id="site-header" class="site-header">
+    <div class="site-container header-inner">
+      <a href="index.html#hero" class="brand-link" aria-label="Aajera Banu Portfolio">
+        <span class="brand-avatar-mini">
+          <img src="assets/images/profile.jpg" alt="Aajera" />
+        </span>
+        <span class="brand-name">Aajera Banu S</span>
+        <span class="brand-badge">DevOps</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#skills" class="nav-link">Skills</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="index.html#pipeline" class="nav-link">CI/CD Demo</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#blogs" class="nav-link">Publications</a>
+        <a href="events.html" class="nav-link nav-link-active nav-link-highlight">
+          <span>Events</span>
+          <span class="nav-event-badge">Active</span>
+        </a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Direct External Blog Link -->
+        <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="blog-pill-btn" title="Containers & Coffee — DevOps thoughts, brewed fresh daily">
+          <span class="coffee-icon">☕</span>
+          <span>Blog</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <!-- Notification Bell Dropdown Button -->
+        <button id="notif-bell-btn" class="notif-bell-btn" aria-label="View Event Notifications" title="Event Announcements">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notif-badge-dot"></span>
+        </button>
+
+        <!-- Light / Dark Mode Toggle Button -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle theme">
+          <i class="fa-solid fa-moon dark-icon"></i>
+          <i class="fa-solid fa-sun light-icon"></i>
+        </button>
+
+        <a href="index.html" class="btn-primary-outline btn-sm">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Portfolio</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="mobile-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">Navigation</div>
+      <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-nav">
+      <a href="index.html#about" class="drawer-link">About Aajera</a>
+      <a href="index.html#skills" class="drawer-link">Skills & Stack</a>
+      <a href="index.html#projects" class="drawer-link">Featured Projects</a>
+      <a href="index.html#pipeline" class="drawer-link">Live CI/CD Demo</a>
+      <a href="index.html#experience" class="drawer-link">Experience & Degrees</a>
+      <a href="index.html#blogs" class="drawer-link">Publications & Articles</a>
+      <a href="events.html" class="drawer-link drawer-link-active">
+        <span>Events & Workshops</span>
+        <span class="nav-event-badge">Active</span>
+      </a>
+      <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="drawer-link drawer-link-highlight">
+        <span>☕ Containers & Coffee (Blog)</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <a href="index.html#contact" class="drawer-link">Get in Touch</a>
+      <div class="drawer-action">
+        <a href="index.html" class="btn-primary w-full text-center">Back to Main Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Dropdown Popover -->
+  <div id="notif-dropdown" class="notif-dropdown">
+    <div class="notif-header">
+      <h4><i class="fa-solid fa-bell text-accent"></i> Event Notifications</h4>
+      <span class="notif-count">2 Updates</span>
+    </div>
+    <div class="notif-list">
+      <div class="notif-item unread">
+        <div class="notif-item-icon bg-accent-light"><i class="fa-solid fa-chalkboard-user text-accent"></i></div>
+        <div class="notif-item-body">
+          <p class="notif-item-title">AWS & DevOps 3-Day Intensive Bootcamp</p>
+          <span class="notif-item-meta">LIVEWIRE Salem · Registrations Open</span>
+        </div>
+      </div>
+      <div class="notif-item">
+        <div class="notif-item-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="notif-item-body">
+          <p class="notif-item-title">Cisco CCNA Packet Tracer Masterclass</p>
+          <span class="notif-item-meta">Next batch starting next month</span>
+        </div>
+      </div>
+    </div>
+    <div class="notif-footer">
+      <button id="invite-speaker-btn" class="btn-ghost-link text-accent">
+        <i class="fa-solid fa-envelope"></i> Invite Aajera to Speak
+      </button>
+    </div>
+  </div>
+
+  <main class="page-content events-page-main">
+    
+    <!-- HERO SECTION FOR EVENTS -->
+    <section class="events-hero-section">
+      <div class="site-container">
+        <div class="events-hero-content">
+          <div class="events-hero-badge">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Training, Speaking & Community Workshops</span>
+          </div>
+          <h1 class="events-hero-title">Empowering the Next Generation of Cloud & Network Engineers</h1>
+          <p class="events-hero-desc">
+            Hands-on technical bootcamps, Cisco CCNA labs, university symposium keynotes, and enterprise cloud workshops conducted by <strong>Aajera Banu S</strong>.
+          </p>
+
+          <!-- Key Metrics -->
+          <div class="events-metrics-row">
+            <div class="event-metric-card">
+              <div class="metric-number">450+</div>
+              <div class="metric-label">Students & Engineers Trained</div>
+            </div>
+            <div class="event-metric-card">
+              <div class="metric-number">15+</div>
+              <div class="metric-label">Live Hands-on Labs & Workshops</div>
+            </div>
+            <div class="event-metric-card">
+              <div class="metric-number">100%</div>
+              <div class="metric-label">Practical, Code-Driven Curriculum</div>
+            </div>
+            <div class="event-metric-card">
+              <div class="metric-number">5/5</div>
+              <div class="metric-label">Participant Rating & Satisfaction</div>
+            </div>
+          </div>
+
+          <div class="events-hero-actions">
+            <button id="hero-rsvp-btn" class="btn-primary">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Register for Next Workshop</span>
+            </button>
+            <a href="index.html#contact" class="btn-secondary">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Invite for Guest Lecture / Corporate Training</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS LISTING & FILTER SECTION -->
+    <section class="section-padding bg-subtle">
+      <div class="site-container">
+        
+        <!-- Search & Filter Controls -->
+        <div class="events-filter-wrapper">
+          <div class="events-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="event-search-input" placeholder="Search workshops by topic, keyword (AWS, CCNA, Docker) or venue..." />
+          </div>
+
+          <div class="events-pills-row">
+            <button class="event-pill active" data-filter="all">All Events (6)</button>
+            <button class="event-pill" data-filter="upcoming">Upcoming & Live (2)</button>
+            <button class="event-pill" data-filter="aws">AWS Cloud (2)</button>
+            <button class="event-pill" data-filter="ccna">Cisco CCNA (2)</button>
+            <button class="event-pill" data-filter="devops">DevOps & Containers (2)</button>
+            <button class="event-pill" data-filter="keynote">Keynote & Speaking (2)</button>
+          </div>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="events-grid-full" id="events-list-grid">
+
+          <!-- Event 1: UPCOMING AWS BOOTCAMP -->
+          <div class="event-card-rich" data-category="upcoming aws devops" data-tags="aws cloud ec2 vpc docker cicd livewire salem">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-upcoming"><i class="fa-solid fa-bolt"></i> Upcoming Batch</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> Enrolling Now · 3-Day Format</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-aws"><i class="fa-brands fa-aws"></i> AWS Cloud & DevOps</div>
+              <h2 class="rich-card-title">AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> LIVEWIRE Salem Center</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> 150+ Expected Participants</span>
+                <span class="meta-item"><i class="fa-solid fa-certificate"></i> Certification Included</span>
+              </div>
+              <p class="rich-card-desc">
+                An intensive, hands-on workshop tailored for students and IT candidates looking to transition into cloud roles. Covers core AWS compute (EC2), VPC subnets, IAM policies, Docker containerization, and continuous deployment workflows.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Key Modules Covered:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> VPC Multi-AZ Network Setup</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> EC2 Auto Scaling & Load Balancing</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Docker Container Packaging</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> GitHub Actions Automated Pipeline</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <button class="btn-primary btn-sm rsvp-trigger-btn" data-event-title="AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp">
+                <i class="fa-solid fa-ticket"></i> Register / RSVP
+              </button>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="aws-bootcamp">
+                <span>View Full Syllabus</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 2: CISCO CCNA MASTERCLASS -->
+          <div class="event-card-rich" data-category="upcoming ccna" data-tags="cisco ccna subnetting vlsm vlan ospf packet tracer livewire">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-upcoming"><i class="fa-solid fa-circle-dot"></i> Next Cohort</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> Weekend Masterclass Series</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-cisco"><i class="fa-solid fa-network-wired"></i> Cisco Networking</div>
+              <h2 class="rich-card-title">Cisco CCNA Networking & Packet Tracer Topology Masterclass</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> LIVEWIRE Technology Center</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> 90+ Engineering Candidates</span>
+                <span class="meta-item"><i class="fa-solid fa-laptop-code"></i> Live Simulation Lab</span>
+              </div>
+              <p class="rich-card-desc">
+                Deep dive into enterprise routing and switching. Students configure dynamic routing protocols (OSPF, EIGRP), design custom VLAN subnetting schemas, and troubleshoot simulated network outages in Cisco Packet Tracer.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Key Modules Covered:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> IPv4 VLSM & CIDR Calculations</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Switch VLAN Trunking & 802.1Q</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Multi-Area OSPF Dynamic Routing</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Access Control Lists (ACLs)</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <button class="btn-primary btn-sm rsvp-trigger-btn" data-event-title="Cisco CCNA Networking & Packet Tracer Masterclass">
+                <i class="fa-solid fa-ticket"></i> Register / RSVP
+              </button>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="ccna-masterclass">
+                <span>View Full Syllabus</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 3: DOCKER CONTAINERIZATION WORKSHOP -->
+          <div class="event-card-rich" data-category="devops" data-tags="docker containers microservices nginx linux livewire">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-completed"><i class="fa-solid fa-check"></i> Completed Session</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> May 2024 · LIVEWIRE Salem</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-docker"><i class="fa-brands fa-docker"></i> Containerization</div>
+              <h2 class="rich-card-title">Docker Containers & Microservices Zero-to-One Lab</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Salem IT Lab Hub</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> 110+ Attendees</span>
+                <span class="meta-item"><i class="fa-solid fa-box-archive"></i> Lab Code Shared</span>
+              </div>
+              <p class="rich-card-desc">
+                Hands-on containerization workshop focusing on writing clean Dockerfiles, multi-stage layer caching, binding volume persistence, and wiring up Nginx reverse proxy containers with custom domains.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Key Modules Covered:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Multi-Stage Dockerfile Optimization</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Docker Compose Multi-Container Stack</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Nginx Reverse Proxy Routing</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Container Security Best Practices</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <button class="btn-secondary btn-sm rsvp-trigger-btn" data-event-title="Docker Containers & Microservices Lab (Request Rerun)">
+                <i class="fa-solid fa-rotate-right"></i> Request Session Rerun
+              </button>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="docker-lab">
+                <span>View Lab Notes</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 4: COLLEGE SYMPOSIUM KEYNOTE -->
+          <div class="event-card-rich" data-category="keynote" data-tags="career keynote speaking symposium college undergrads roadmap">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-completed"><i class="fa-solid fa-microphone-lines"></i> Keynote Speaker</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> February 2024 · Salem Tech Symposium</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-speaker"><i class="fa-solid fa-microphone"></i> Keynote & Career Roadmap</div>
+              <h2 class="rich-card-title">Breaking into Cloud & DevOps: Roadmap for Computer Science Graduates</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> College Auditorium, Salem</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> 200+ Undergraduates</span>
+                <span class="meta-item"><i class="fa-solid fa-award"></i> Guest Honor</span>
+              </div>
+              <p class="rich-card-desc">
+                Invited keynote address delivering actionable advice for engineering undergraduates. Emphasized practical project building, Linux fluency, Git discipline, and cloud certification strategies over rote theory.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Highlights of Address:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Cloud Engineering Skills Matrix</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Building GitHub Portfolios that Stand Out</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Overcoming Imposter Syndrome in Tech</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Live 45-Min Q&A Career Clinic</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <a href="index.html#contact" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-envelope"></i> Invite as Speaker
+              </a>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="career-keynote">
+                <span>View Summary</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 5: UNIVERSITY TELEMETRY SESSION -->
+          <div class="event-card-rich" data-category="keynote aws" data-tags="periyar university data science telemetry cloudwatch prometheus">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-completed"><i class="fa-solid fa-brain"></i> Tech Presentation</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> October 2024 · Periyar University</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-research"><i class="fa-solid fa-brain"></i> Data Science & SRE</div>
+              <h2 class="rich-card-title">Cloud Infrastructure Telemetry & Anomaly Detection for Data Pipelines</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Periyar University Tech Forum</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> MSc Cohort & Faculty</span>
+                <span class="meta-item"><i class="fa-solid fa-chart-line"></i> Research Presentation</span>
+              </div>
+              <p class="rich-card-desc">
+                Technical presentation showing how time-series analytics and statistical machine learning models can be applied to Amazon CloudWatch and Prometheus infrastructure streams for predictive outage prevention.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Key Research Topics:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Real-time Telemetry Ingestion</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Statistical Anomaly Thresholding</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Automated SNS Notification Triggers</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Bridging Data Science with SRE</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-book-open"></i> Read on Blog
+              </a>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="telemetry-session">
+                <span>View Details</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 6: WOMEN IN TECH MENTORSHIP -->
+          <div class="event-card-rich" data-category="keynote" data-tags="women in tech mentorship diversity cloud computing salem">
+            <div class="rich-card-status-bar">
+              <span class="status-tag status-completed"><i class="fa-solid fa-heart"></i> Community Outreach</span>
+              <span class="status-date"><i class="fa-regular fa-calendar"></i> January 2024 · Salem Tech Forum</span>
+            </div>
+            <div class="rich-card-body">
+              <div class="rich-card-cat-badge badge-speaker"><i class="fa-solid fa-hand-holding-heart"></i> Mentorship Circle</div>
+              <h2 class="rich-card-title">Women in Tech: Cloud Architecture & DevOps Mentorship Circle</h2>
+              <div class="rich-card-meta-row">
+                <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Salem Women's Engineering Forum</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> 80+ Aspiring Women in STEM</span>
+                <span class="meta-item"><i class="fa-solid fa-comments"></i> 1-on-1 Mentorship</span>
+              </div>
+              <p class="rich-card-desc">
+                A dedicated community initiative fostering participation of women in cloud computing, networking certifications, and DevOps infrastructure careers through hands-on guidance and peer support.
+              </p>
+              
+              <div class="rich-curriculum-box">
+                <div class="curriculum-header"><i class="fa-solid fa-list-check text-accent"></i> Mentorship Highlights:</div>
+                <div class="curriculum-grid">
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Cloud Career Roadmap & Certification Path</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Overcoming Technical Barriers with Hands-on Labs</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Professional Networking & LinkedIn Optimization</div>
+                  <div class="curr-item"><i class="fa-solid fa-check text-accent"></i> Ongoing Peer Mentoring Group</div>
+                </div>
+              </div>
+            </div>
+            <div class="rich-card-footer">
+              <a href="index.html#contact" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-handshake"></i> Partner for Workshop
+              </a>
+              <button class="btn-ghost-link view-syllabus-btn" data-event-id="women-in-tech">
+                <span>View Highlights</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS & FEEDBACK SECTION -->
+    <section class="section-padding">
+      <div class="site-container">
+        <div class="section-intro text-center">
+          <span class="sub-heading">Attendee Feedback</span>
+          <h2 class="main-heading">What Students & Trainees Say</h2>
+          <p class="section-desc">Feedback from participants of LIVEWIRE training batches, CCNA masterclasses, and college workshops.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="quote-text">
+              "Aajera explains networking and AWS concepts with such clarity. Subnetting used to be a nightmare for me, but her Packet Tracer drills made it completely intuitive. The hands-on labs were top-notch!"
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">K</div>
+              <div>
+                <div class="reviewer-name">Kavitha R.</div>
+                <div class="reviewer-role">Cloud Aspirant · LIVEWIRE Salem Batch</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="quote-text">
+              "The Docker & CI/CD pipeline session was the best workshop I attended this year. Aajera showed us how real companies deploy code with zero downtime instead of just reading slides."
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">S</div>
+              <div>
+                <div class="reviewer-name">Suresh Kumar</div>
+                <div class="reviewer-role">BSc Computer Science Graduate</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="quote-text">
+              "Her symposium keynote gave all our students a practical roadmap for entering Cloud Engineering. She patiently answered every single career question during the Q&A session!"
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">P</div>
+              <div>
+                <div class="reviewer-name">Prof. Deepa M.</div>
+                <div class="reviewer-role">Department of Computer Science</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INVITATION CTA BANNER -->
+    <section class="section-padding bg-subtle">
+      <div class="site-container">
+        <div class="event-invite-cta-card">
+          <div class="cta-card-content">
+            <span class="sub-heading text-accent">Host a Training or Guest Lecture</span>
+            <h2 class="main-heading">Looking to Host an AWS, CCNA, or DevOps Workshop?</h2>
+            <p class="section-desc">
+              Aajera Banu S is available for university tech symposium keynotes, hands-on weekend bootcamps, and corporate training programs across Tamil Nadu and online.
+            </p>
+            <div class="cta-buttons-row">
+              <a href="index.html#contact" class="btn-primary">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Get in Touch for Bookings</span>
+              </a>
+              <a href="mailto:aajera.banu05@gmail.com" class="btn-secondary">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>aajera.banu05@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-name">Aajera Banu S</span>
+          <p class="footer-tagline">AWS & Networking Trainer · Cloud & DevOps Practitioner</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="events.html">Events & Workshops</a>
+          <a href="https://containersandcoffee.tech/" target="_blank" rel="noopener noreferrer">Containers & Coffee ↗</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="footer-copyright">
+          &copy; <span id="year-span"></span> Aajera Banu S. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RSVP / EVENT REGISTRATION MODAL -->
+  <div id="rsvp-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-compact">
+      <div class="modal-header-bar">
+        <div>
+          <span class="modal-cat-badge">Event Registration</span>
+          <h3 id="modal-rsvp-title" class="modal-title-text text-accent">Register for Workshop</h3>
+        </div>
+        <button id="close-rsvp-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll">
+        <form id="rsvp-form" class="rsvp-form">
+          <div class="form-group">
+            <label for="rsvp-name">Full Name *</label>
+            <input type="text" id="rsvp-name" required placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-email">Email Address *</label>
+            <input type="email" id="rsvp-email" required placeholder="your.email@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-phone">Phone / WhatsApp Number</label>
+            <input type="tel" id="rsvp-phone" placeholder="+91 98765 43210" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-event-select">Selected Event / Workshop</label>
+            <input type="text" id="rsvp-event-select" readonly value="AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp" />
+          </div>
+          <div class="form-group">
+            <label for="rsvp-notes">Institution / Current Role & Questions</label>
+            <textarea id="rsvp-notes" rows="3" placeholder="Tell us about your college, background or specific topics you want covered..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Submit Registration Request</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT SYLLABUS DETAILS MODAL -->
+  <div id="syllabus-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-readable">
+      <div class="modal-header-bar">
+        <div>
+          <span id="modal-syllabus-cat" class="modal-cat-badge">Workshop Syllabus</span>
+          <h3 id="modal-syllabus-title" class="modal-title-text">Event Details</h3>
+        </div>
+        <button id="close-syllabus-modal" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body-scroll article-reader-content" id="modal-syllabus-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="toast-popup"></div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
