@@ -931,34 +931,36 @@ body {
 .hero-photo-column {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   position: relative;
+  margin-top: -10px;
 }
 
 .photo-card-frame {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 14px;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
   transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
 }
 
 [data-theme="dark"] .photo-card-frame {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .photo-card-frame:hover {
   transform: translateY(-4px);
-  box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(37, 99, 235, 0.25);
 }
 
 .photo-inner {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 580px;
   border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -972,13 +974,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 26%;
+  object-position: center 10%;
   display: block;
   transition: transform var(--trans-smooth);
 }
 
 .photo-card-frame:hover .hero-big-photo {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .photo-info-card {
