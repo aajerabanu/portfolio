@@ -117,12 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.drawer-link').forEach((link) => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        closeMobileMenu();
 
         if (href && href.startsWith('#')) {
+          e.preventDefault();
           const target = document.querySelector(href);
+
+          // 1. Close the drawer first
+          closeMobileMenu();
+
+          // 2. Wait for the drawer to slide completely off-screen (260ms) before scrolling
+          // This eliminates the jarring effect where the sidebar moves across the viewport while the page scrolls
           if (target) {
-            e.preventDefault();
             setTimeout(() => {
               const headerEl = document.querySelector('.site-header');
               const headerOffset = headerEl ? headerEl.offsetHeight : 70;
@@ -131,8 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 top: targetPosition,
                 behavior: 'smooth'
               });
-            }, 120);
+            }, 260);
           }
+        } else {
+          closeMobileMenu();
         }
       });
     });

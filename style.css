@@ -762,12 +762,12 @@ body {
   background: var(--bg-card);
   border-left: 1px solid var(--border-color);
   z-index: 1200;
-  padding: 1.8rem 1.5rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
   box-shadow: -10px 0 35px rgba(0, 0, 0, 0.4);
-  overflow-y: auto;
+  overflow: hidden;
   visibility: hidden;
   pointer-events: none;
 }
@@ -793,7 +793,7 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .drawer-backdrop.open {
@@ -806,7 +806,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .drawer-title {
@@ -817,17 +823,39 @@ body {
 }
 
 .drawer-close-btn {
-  background: transparent;
-  border: none;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
   color: var(--text-primary);
-  font-size: 1.3rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.drawer-close-btn:hover,
+.drawer-close-btn:active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.drawer-scroll-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
 }
 
 .drawer-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.1rem;
 }
 
 .drawer-link {
@@ -837,14 +865,18 @@ body {
   font-weight: 600;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
-.drawer-link:hover {
+.drawer-link:hover,
+.drawer-link:active {
   color: var(--accent);
+  transform: translateX(4px);
 }
 
 .drawer-action {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -4476,19 +4508,24 @@ body {
     max-width: 340px;
     right: -100%;
     border-radius: 0;
+    padding: 0;
   }
 
   .mobile-drawer.open {
     right: 0;
   }
 
+  .drawer-scroll-body {
+    padding: 1.25rem 1.25rem 2.5rem;
+  }
+
   .drawer-nav {
-    padding: 0.5rem 0;
+    padding: 0;
   }
 
   .drawer-link {
-    padding: 0.85rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.95rem;
   }
 
   /* === NOTIFICATION DROPDOWN === */
