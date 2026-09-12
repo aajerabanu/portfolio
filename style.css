@@ -978,16 +978,194 @@ body {
   background: #090d16;
 }
 
-.hero-big-photo {
+/* ===== AI SLIDESHOW ===== */
+.slide-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  display: block;
-  transition: transform var(--trans-smooth);
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  will-change: opacity;
 }
 
-.photo-card-frame:hover .hero-big-photo {
+.slide-img.slide-active {
+  opacity: 1;
+}
+
+.photo-card-frame:hover .slide-img.slide-active {
+  transform: scale(1.02);
+}
+
+/* ===== AI FRAME GLOW BORDER ===== */
+.ai-frame {
+  position: relative;
+}
+
+.ai-frame::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: calc(var(--radius-lg) + 3px);
+  background: linear-gradient(135deg, #6366f1, #06b6d4, #8b5cf6, #10b981, #6366f1);
+  background-size: 300% 300%;
+  animation: ai-border-spin 4s linear infinite;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.ai-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ai-border-spin {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== AI OVERLAY SYSTEM ===== */
+.ai-photo-inner {
+  position: relative;
+}
+
+.ai-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Scan Line */
+.ai-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.8), rgba(6, 182, 212, 0.9), rgba(99, 102, 241, 0.8), transparent);
+  box-shadow: 0 0 12px 3px rgba(99, 102, 241, 0.5);
+  animation: ai-scan 3s ease-in-out infinite;
+  top: 0;
+}
+
+@keyframes ai-scan {
+  0%   { top: 0%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Grid Overlay */
+.ai-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.ai-frame:hover .ai-grid-overlay {
+  opacity: 1;
+}
+
+/* Corner Brackets */
+.ai-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(99, 102, 241, 0.85);
+  border-style: solid;
+  animation: corner-pulse 2.5s ease-in-out infinite;
+}
+
+.ai-corner-tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+.ai-corner-tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+.ai-corner-bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+.ai-corner-br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+@keyframes corner-pulse {
+  0%, 100% { border-color: rgba(99, 102, 241, 0.85); }
+  50%       { border-color: rgba(6, 182, 212, 1); box-shadow: 0 0 8px rgba(6, 182, 212, 0.6); }
+}
+
+/* AI Badge */
+.ai-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  border-radius: 30px;
+  padding: 4px 10px;
+}
+
+.ai-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: dot-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #10b981; }
+  50%       { opacity: 0.4; box-shadow: none; }
+}
+
+.ai-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #c7d2fe;
+  font-family: 'Courier New', monospace;
+}
+
+/* Data Stream */
+.ai-data-stream {
+  position: absolute;
+  bottom: 90px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ai-data-stream span {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(6, 182, 212, 0.9);
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(6, 182, 212, 0.7);
+  animation: stream-flicker 3s ease-in-out infinite;
+}
+
+.ai-data-stream span:nth-child(2) { animation-delay: 0.6s; }
+.ai-data-stream span:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes stream-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.3; }
+}
+
+.photo-card-frame:hover .slide-img.slide-active {
   transform: scale(1.01);
 }
 

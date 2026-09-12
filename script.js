@@ -3,6 +3,48 @@
  * Clean, Human-Crafted Interactive Engine with Light/Dark Mode
  */
 
+/* ============================================================
+   AI HERO SLIDESHOW — Rapid image switcher with crossfade
+   ============================================================ */
+(function initAISlideshow() {
+  const SWITCH_INTERVAL = 2500;   // ms between auto-switches
+  const HOVER_INTERVAL  = 1200;   // ms on hover (faster/snappier)
+
+  function startSlideshow(slides, frame) {
+    let current = 0;
+    let timer;
+
+    function showSlide(idx) {
+      slides.forEach((s, i) => {
+        s.classList.toggle('slide-active', i === idx);
+      });
+    }
+
+    function next() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function run(interval) {
+      clearInterval(timer);
+      timer = setInterval(next, interval);
+    }
+
+    // Start at normal speed
+    run(SWITCH_INTERVAL);
+
+    // Hover: go faster
+    frame.addEventListener('mouseenter', () => run(HOVER_INTERVAL));
+    frame.addEventListener('mouseleave', () => run(SWITCH_INTERVAL));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const frame  = document.querySelector('.ai-frame');
+    const slides = Array.from(document.querySelectorAll('.slide-img'));
+    if (frame && slides.length >= 2) startSlideshow(slides, frame);
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // Update year
   const yearSpan = document.getElementById('year-span');

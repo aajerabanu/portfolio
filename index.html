@@ -213,11 +213,32 @@
             </div>
           </div>
 
-          <!-- Right Column: BIG, Beautiful Photo Frame -->
+          <!-- Right Column: BIG, Beautiful Photo Frame with AI Slideshow -->
           <div class="hero-photo-column">
-            <div class="photo-card-frame">
-              <div class="photo-inner">
-                <img src="assets/images/profile.jpg" alt="Aajera Banu S — Cloud & DevOps Engineer" class="hero-big-photo" />
+            <div class="photo-card-frame ai-frame">
+              <!-- AI Slideshow Container -->
+              <div class="photo-inner ai-photo-inner">
+                <img src="assets/images/profile.jpg" alt="Aajera Banu S — Cloud & DevOps Engineer" class="hero-big-photo slide-img slide-active" id="slide1" />
+                <img src="assets/images/profile-original.jpg" alt="Aajera Banu S — Speaker & Trainer" class="hero-big-photo slide-img" id="slide2" />
+
+                <!-- AI Effects Overlay -->
+                <div class="ai-overlay">
+                  <div class="ai-scan-line"></div>
+                  <div class="ai-grid-overlay"></div>
+                  <div class="ai-corner ai-corner-tl"></div>
+                  <div class="ai-corner ai-corner-tr"></div>
+                  <div class="ai-corner ai-corner-bl"></div>
+                  <div class="ai-corner ai-corner-br"></div>
+                  <div class="ai-badge">
+                    <span class="ai-dot"></span>
+                    <span class="ai-label">AI ENHANCED</span>
+                  </div>
+                  <div class="ai-data-stream">
+                    <span>AWS·CCNA·DevOps</span>
+                    <span>450+ Trained</span>
+                    <span>LIVE</span>
+                  </div>
+                </div>
               </div>
               
               <!-- Floating Pill Card on Photo -->
