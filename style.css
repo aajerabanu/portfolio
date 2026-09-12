@@ -1186,50 +1186,28 @@ body {
 .photo-inner {
   position: relative;
   width: 100%;
-  aspect-ratio: 576 / 1024;
-  max-height: 680px;
+  aspect-ratio: 3 / 4;
+  max-height: 580px;
   border-radius: 14px;
   overflow: hidden;
   background: #0f172a;
-  display: flex;
 }
 
-/* Avatar style — circle image inside the card */
-.avatar-inner {
-  aspect-ratio: 1 / 1;
-  max-height: 420px;
-  border-radius: 50%;
-  margin: 12px auto;
-  width: calc(100% - 24px);
-  border: 4px solid var(--bg-card);
-  box-shadow: 0 0 0 2px var(--border-color), 0 12px 30px rgba(0,0,0,0.15);
+[data-theme="dark"] .photo-inner {
+  background: #090d16;
 }
 
-[data-theme="dark"] .avatar-inner {
-  border-color: rgba(19, 27, 46, 1);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.4);
-}
-
-.hero-avatar-photo {
-  position: absolute;
-  inset: 0;
+.hero-big-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 50%;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-/* Restore photo-inner display rule */
-.photo-inner-flex-start {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-[data-theme="dark"] .photo-inner {
-  background: #090d16;
+.photo-card-frame:hover .hero-big-photo {
+  transform: scale(1.02);
 }
 
 /* ===== AI SLIDESHOW ===== */
