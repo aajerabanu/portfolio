@@ -931,15 +931,237 @@ body {
   line-height: 1.35;
 }
 
-/* BIG Photo Frame */
+/* ===== CIRCULAR ORBITAL SCENE ===== */
 .hero-photo-column {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
-  margin-top: -55px;
+  margin-top: 0;
 }
 
+/* The scene container — everything is positioned relative to this */
+.orb-scene {
+  position: relative;
+  width: 420px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---- Orbital Rings ---- */
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.orb-ring-1 {
+  width: 320px;
+  height: 320px;
+  border-width: 1.5px;
+  border-color: rgba(99, 102, 241, 0.25);
+  animation: ring-spin 12s linear infinite;
+}
+
+.orb-ring-2 {
+  width: 390px;
+  height: 390px;
+  border-width: 1px;
+  border-color: rgba(6, 182, 212, 0.18);
+  border-style: dashed;
+  animation: ring-spin 20s linear infinite reverse;
+}
+
+.orb-ring-3 {
+  width: 460px;
+  height: 460px;
+  border-width: 1px;
+  border-color: rgba(139, 92, 246, 0.12);
+  animation: ring-spin 30s linear infinite;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---- Orbiting Tech Icon Dots ---- */
+.orbit-dot {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #fff;
+  z-index: 5;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+/* Each dot sits on ring-1 (160px radius) and orbits */
+.orbit-dot-1 {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  animation: orbit1 12s linear infinite;
+  transform-origin: 0 0;
+}
+
+.orbit-dot-2 {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  animation: orbit2 12s linear infinite;
+}
+
+.orbit-dot-3 {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  animation: orbit3 12s linear infinite;
+}
+
+.orbit-dot-4 {
+  background: linear-gradient(135deg, #10b981, #059669);
+  animation: orbit4 12s linear infinite;
+}
+
+/* Place dots equidistant on a 160px radius circle */
+@keyframes orbit1 {
+  from { transform: rotate(0deg)   translate(160px) rotate(0deg); }
+  to   { transform: rotate(360deg) translate(160px) rotate(-360deg); }
+}
+@keyframes orbit2 {
+  from { transform: rotate(90deg)  translate(160px) rotate(-90deg); }
+  to   { transform: rotate(450deg) translate(160px) rotate(-450deg); }
+}
+@keyframes orbit3 {
+  from { transform: rotate(180deg) translate(160px) rotate(-180deg); }
+  to   { transform: rotate(540deg) translate(160px) rotate(-540deg); }
+}
+@keyframes orbit4 {
+  from { transform: rotate(270deg) translate(160px) rotate(-270deg); }
+  to   { transform: rotate(630deg) translate(160px) rotate(-630deg); }
+}
+
+/* ---- Circular Image Frame ---- */
+.orb-photo-frame {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.orb-photo-inner {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.orb-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
+
+/* Name card below circle */
+.orb-name-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 40px;
+  padding: 8px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .orb-name-card {
+  background: rgba(19, 27, 46, 0.9);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.orb-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  flex-shrink: 0;
+  animation: dot-blink 1.4s ease-in-out infinite;
+}
+
+.orb-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.orb-title {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ---- Floating Stat Chips ---- */
+.orb-chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 7px 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  z-index: 15;
+  white-space: nowrap;
+  animation: chip-float 3s ease-in-out infinite;
+}
+
+[data-theme="dark"] .orb-chip {
+  background: rgba(19, 27, 46, 0.92);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.orb-chip i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.orb-chip-1 { top: 55px; left: -20px; animation-delay: 0s; }
+.orb-chip-2 { top: 55px; right: -20px; animation-delay: 1s; }
+.orb-chip-3 { bottom: 60px; left: 50%; transform: translateX(-50%); animation-delay: 2s; }
+
+@keyframes chip-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.orb-chip-3 {
+  animation: chip-float-center 3s ease-in-out infinite 2s;
+}
+@keyframes chip-float-center {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* ---- old frame compat rules ---- */
 .photo-card-frame {
   position: relative;
   width: 100%;
@@ -948,17 +1170,8 @@ body {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 12px;
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12);
   transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
-}
-
-[data-theme="dark"] .photo-card-frame {
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-.photo-card-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(37, 99, 235, 0.25);
 }
 
 .photo-inner {
@@ -973,6 +1186,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 
 [data-theme="dark"] .photo-inner {
   background: #090d16;
@@ -1007,13 +1221,12 @@ body {
 .ai-frame::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  border-radius: calc(var(--radius-lg) + 3px);
-  background: linear-gradient(135deg, #6366f1, #06b6d4, #8b5cf6, #10b981, #6366f1);
-  background-size: 300% 300%;
-  animation: ai-border-spin 4s linear infinite;
-  z-index: 0;
-  opacity: 0.85;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(#6366f1, #06b6d4, #8b5cf6, #10b981, #f97316, #6366f1);
+  animation: ai-border-spin 3s linear infinite;
+  z-index: -1;
+  opacity: 0.9;
 }
 
 .ai-frame > * {
@@ -1022,9 +1235,8 @@ body {
 }
 
 @keyframes ai-border-spin {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ===== AI OVERLAY SYSTEM ===== */
