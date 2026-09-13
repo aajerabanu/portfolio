@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://kerthikdev.github.io/aajera-portfolio/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg</image:loc>
+      <image:title>Aajera Banu S — Cloud and DevOps Engineer</image:title>
+      <image:caption>Official portrait of Aajera Banu S, AWS and Cisco Networking Trainer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kerthikdev.github.io/aajera-portfolio/assets/images/profile.jpg</image:loc>
+      <image:title>Aajera Banu S — Full Portrait</image:title>
+      <image:caption>Aajera Banu S - Cloud &amp; DevOps Engineer</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://kerthikdev.github.io/aajera-portfolio/events.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg</image:loc>
+      <image:title>Aajera Banu S — Workshops &amp; Speaking Events</image:title>
+      <image:caption>Workshops and masterclasses led by Aajera Banu S</image:caption>
+    </image:image>
   </url>
 </urlset>

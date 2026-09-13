@@ -12,12 +12,22 @@
   <meta name="author" content="Aajera Banu S" />
   <link rel="canonical" href="https://kerthikdev.github.io/aajera-portfolio/" />
 
+  <!-- Favicon & Touch Icons (Displayed next to site in Google Search Results) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!-- Google Image Thumbnail & Rich Snippet Directives -->
+  <link rel="image_src" href="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg" />
+  <meta name="thumbnail" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg" />
+
   <!-- Search Engine Crawling Directives -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <!-- Open Graph / Facebook / LinkedIn (Targeted for Google & Social Card Display) -->
   <meta property="og:type" content="profile" />
   <meta property="profile:first_name" content="Aajera" />
   <meta property="profile:last_name" content="Banu S" />
@@ -25,7 +35,11 @@
   <meta property="og:url" content="https://kerthikdev.github.io/aajera-portfolio/" />
   <meta property="og:title" content="Aajera Banu S | Cloud & DevOps Engineer | Official Portfolio" />
   <meta property="og:description" content="Official portfolio of Aajera Banu S — Cloud & DevOps Engineer, AWS & Cisco Networking Trainer, and author of Containers & Coffee. Explore live labs, case studies, and engineering workshops." />
-  <meta property="og:image" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile.jpg" />
+  <meta property="og:image" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg" />
+  <meta property="og:image:secure_url" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="576" />
+  <meta property="og:image:height" content="576" />
   <meta property="og:image:alt" content="Aajera Banu S — Cloud & DevOps Engineer" />
   <meta property="og:site_name" content="Aajera Banu S Portfolio" />
   <meta property="og:locale" content="en_US" />
@@ -35,10 +49,10 @@
   <meta name="twitter:url" content="https://kerthikdev.github.io/aajera-portfolio/" />
   <meta name="twitter:title" content="Aajera Banu S | Cloud & DevOps Engineer" />
   <meta name="twitter:description" content="Official portfolio of Aajera Banu S — Cloud & DevOps Engineer and AWS & Networking Trainer. Explore production case studies, GitOps pipelines, and technical writings." />
-  <meta name="twitter:image" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile.jpg" />
+  <meta name="twitter:image" content="https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg" />
   <meta name="twitter:image:alt" content="Aajera Banu S — Cloud & DevOps Engineer" />
 
-  <!-- Schema.org JSON-LD Structured Data (Person, ProfilePage, WebSite) -->
+  <!-- Schema.org JSON-LD Structured Data (Person, ProfilePage, WebSite, ImageObject) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,7 +63,16 @@
         "name": "Aajera Banu S",
         "alternateName": ["Aajera Banu", "Aajera", "aajerabanu", "aajerabanu0508"],
         "url": "https://kerthikdev.github.io/aajera-portfolio/",
-        "image": "https://kerthikdev.github.io/aajera-portfolio/assets/images/profile.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://kerthikdev.github.io/aajera-portfolio/#personimage",
+          "url": "https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg",
+          "contentUrl": "https://kerthikdev.github.io/aajera-portfolio/assets/images/profile-portrait.jpg",
+          "caption": "Aajera Banu S — Cloud & DevOps Engineer",
+          "width": 576,
+          "height": 576,
+          "representativeOfPage": true
+        },
         "jobTitle": "Cloud & DevOps Engineer, AWS & Networking Trainer",
         "description": "Cloud and DevOps Engineer and AWS & Cisco Networking Trainer at LIVEWIRE. Creator of Containers & Coffee technical publication.",
         "sameAs": [
@@ -111,6 +134,9 @@
         "@id": "https://kerthikdev.github.io/aajera-portfolio/#profilepage",
         "url": "https://kerthikdev.github.io/aajera-portfolio/",
         "name": "Aajera Banu S — Personal Branding & Portfolio",
+        "primaryImageOfPage": {
+          "@id": "https://kerthikdev.github.io/aajera-portfolio/#personimage"
+        },
         "about": {
           "@id": "https://kerthikdev.github.io/aajera-portfolio/#person"
         },
@@ -363,9 +389,12 @@
           <!-- Right Column: Circular Floating Avatar with Orbital Rings -->
           <!-- Right Column: Clean Portrait Card -->
           <div class="hero-photo-column">
-            <div class="photo-card-frame">
+            <div class="photo-card-frame" itemscope itemtype="https://schema.org/Person">
+              <meta itemprop="name" content="Aajera Banu S" />
+              <meta itemprop="jobTitle" content="Cloud & DevOps Engineer" />
+              <link itemprop="sameAs" href="https://www.linkedin.com/in/aajerabanu/" />
               <div class="photo-inner">
-                <img src="assets/images/profile.jpg" alt="Aajera Banu S — Cloud & DevOps Engineer" class="hero-big-photo" />
+                <img src="assets/images/profile.jpg" itemprop="image" alt="Aajera Banu S — Cloud & DevOps Engineer and AWS Trainer" title="Aajera Banu S" class="hero-big-photo" />
               </div>
 
               <!-- Floating Pill Card on Photo -->
