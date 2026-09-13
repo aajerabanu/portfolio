@@ -2440,6 +2440,42 @@ body {
   box-shadow: 0 0 0 3px var(--accent-light);
 }
 
+/* Formspree Submission Status Feedback */
+.form-status-msg {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+.form-status-msg:empty {
+  display: none;
+}
+
+.form-status-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10b981;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: var(--radius-sm);
+  line-height: 1.45;
+}
+
+.form-status-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #ef4444;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: var(--radius-sm);
+  line-height: 1.45;
+}
+
 /* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */

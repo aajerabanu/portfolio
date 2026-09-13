@@ -408,25 +408,63 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     8. Contact Form Dispatch Handler
+     8. Contact Form Dispatch Handler (Formspree Integration)
      ========================================================================== */
   const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const subject = document.getElementById('form-subject').value;
-      const message = document.getElementById('form-message').value;
 
-      const mailto = `mailto:aajera.banu05@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      const submitBtn = document.getElementById('contact-submit-btn') || contactForm.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
 
-      showToast('✉️ Opening email client for Aajera Banu...');
-      setTimeout(() => {
-        window.location.href = mailto;
-      }, 800);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending Message...</span>';
+      }
 
-      contactForm.reset();
+      if (formStatus) formStatus.innerHTML = '';
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch('https://formspree.io/f/xvkojzpr', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showToast('✅ Thank you! Your message has been sent to Aajera Banu.');
+          if (formStatus) {
+            formStatus.innerHTML = '<div class="form-status-success"><i class="fa-solid fa-circle-check"></i> Thank you! Your message was delivered directly to Aajera\'s inbox.</div>';
+          }
+          contactForm.reset();
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const errorMsg = data && data.errors && data.errors.length
+            ? data.errors.map((err) => err.message).join(', ')
+            : 'Oops! There was an issue submitting your message. Please try again.';
+          showToast('⚠️ ' + errorMsg);
+          if (formStatus) {
+            formStatus.innerHTML = `<div class="form-status-error"><i class="fa-solid fa-triangle-exclamation"></i> ${errorMsg}</div>`;
+          }
+        }
+      } catch (err) {
+        showToast('⚠️ Network connection issue. Please try again.');
+        if (formStatus) {
+          formStatus.innerHTML = '<div class="form-status-error"><i class="fa-solid fa-triangle-exclamation"></i> Unable to send message. Please check your connection or email directly at aajera.banu05@gmail.com.</div>';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+      }
     });
   }
 
@@ -707,22 +745,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (rsvpForm) {
-    rsvpForm.addEventListener('submit', (e) => {
+    rsvpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('rsvp-name').value;
-      const email = document.getElementById('rsvp-email').value;
-      const eventName = rsvpEventSelect ? rsvpEventSelect.value : 'Workshop';
-      const notes = document.getElementById('rsvp-notes') ? document.getElementById('rsvp-notes').value : '';
+      const submitBtn = document.getElementById('rsvp-submit-btn') || rsvpForm.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+      const rsvpStatus = document.getElementById('rsvp-status');
 
-      showToast(`🎉 Registration request submitted for ${name}! Details sent to Aajera.`);
-      if (rsvpModal) rsvpModal.classList.remove('open');
-      rsvpForm.reset();
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Submitting Registration...</span>';
+      }
 
-      // Open mailto fallback
-      setTimeout(() => {
-        const mailto = `mailto:aajera.banu05@gmail.com?subject=${encodeURIComponent(`[Workshop RSVP] ${eventName} - ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nEvent: ${eventName}\n\nNotes:\n${notes}`)}`;
-        window.location.href = mailto;
-      }, 1200);
+      if (rsvpStatus) rsvpStatus.innerHTML = '';
+
+      const formData = new FormData(rsvpForm);
+      const name = document.getElementById('rsvp-name') ? document.getElementById('rsvp-name').value : 'Attendee';
+
+      try {
+        const response = await fetch('https://formspree.io/f/xvkojzpr', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showToast(`🎉 Registration request submitted for ${name}!`);
+          if (rsvpStatus) {
+            rsvpStatus.innerHTML = '<div class="form-status-success"><i class="fa-solid fa-circle-check"></i> Registration submitted! You will receive confirmation details shortly.</div>';
+          }
+          rsvpForm.reset();
+          setTimeout(() => {
+            if (rsvpModal) rsvpModal.classList.remove('open');
+            if (rsvpStatus) rsvpStatus.innerHTML = '';
+          }, 2000);
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const errorMsg = data && data.errors && data.errors.length
+            ? data.errors.map((err) => err.message).join(', ')
+            : 'Issue submitting registration request.';
+          showToast('⚠️ ' + errorMsg);
+          if (rsvpStatus) {
+            rsvpStatus.innerHTML = `<div class="form-status-error"><i class="fa-solid fa-triangle-exclamation"></i> ${errorMsg}</div>`;
+          }
+        }
+      } catch (err) {
+        showToast('⚠️ Network issue submitting registration. Please try again.');
+        if (rsvpStatus) {
+          rsvpStatus.innerHTML = '<div class="form-status-error"><i class="fa-solid fa-triangle-exclamation"></i> Network error. Please try again.</div>';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+      }
     });
   }
 
