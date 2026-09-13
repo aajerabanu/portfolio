@@ -725,22 +725,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalRsvpTitle = document.getElementById('modal-rsvp-title');
   const rsvpForm = document.getElementById('rsvp-form');
 
-  document.querySelectorAll('.rsvp-trigger-btn, #open-rsvp-top-btn, #hero-rsvp-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const eventTitle = btn.getAttribute('data-event-title') || 'AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp';
-      if (rsvpEventSelect) rsvpEventSelect.value = eventTitle;
-      if (modalRsvpTitle) modalRsvpTitle.textContent = 'Register: ' + (eventTitle.length > 30 ? eventTitle.substring(0, 30) + '...' : eventTitle);
-      if (rsvpModal) rsvpModal.classList.add('open');
+  function openRsvpModal(eventTitle) {
+    const title = eventTitle || 'AWS Cloud Practitioner & DevOps 3-Day Intensive Bootcamp';
+    if (rsvpEventSelect) rsvpEventSelect.value = title;
+    if (modalRsvpTitle) {
+      modalRsvpTitle.textContent = 'Register: ' + (title.length > 32 ? title.substring(0, 32) + '...' : title);
+    }
+    if (rsvpModal) {
+      rsvpModal.classList.add('active', 'open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeRsvpModalFunc() {
+    if (rsvpModal) {
+      rsvpModal.classList.remove('active', 'open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.rsvp-trigger-btn, #open-rsvp-top-btn, #hero-rsvp-btn, [data-action="rsvp"]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const eventTitle = btn.getAttribute('data-event-title');
+      openRsvpModal(eventTitle);
     });
   });
 
-  if (closeRsvpModal && rsvpModal) {
-    closeRsvpModal.addEventListener('click', () => {
-      rsvpModal.classList.remove('open');
-    });
+  if (closeRsvpModal) {
+    closeRsvpModal.addEventListener('click', closeRsvpModalFunc);
+  }
 
+  if (rsvpModal) {
     rsvpModal.addEventListener('click', (e) => {
-      if (e.target === rsvpModal) rsvpModal.classList.remove('open');
+      if (e.target === rsvpModal) closeRsvpModalFunc();
     });
   }
 
@@ -777,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           rsvpForm.reset();
           setTimeout(() => {
-            if (rsvpModal) rsvpModal.classList.remove('open');
+            closeRsvpModalFunc();
             if (rsvpStatus) rsvpStatus.innerHTML = '';
           }, 2000);
         } else {
@@ -936,29 +954,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  function openSyllabusModal(data) {
+    if (data && syllabusModal && modalSyllabusTitle && modalSyllabusContent) {
+      if (modalSyllabusCat) modalSyllabusCat.textContent = data.category;
+      modalSyllabusTitle.textContent = data.title;
+      modalSyllabusContent.innerHTML = data.content;
+      syllabusModal.classList.add('active', 'open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeSyllabusModalFunc() {
+    if (syllabusModal) {
+      syllabusModal.classList.remove('active', 'open');
+      document.body.style.overflow = '';
+    }
+  }
+
   document.querySelectorAll('.view-syllabus-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const eventId = btn.getAttribute('data-event-id');
       const data = syllabusData[eventId];
-
-      if (data && syllabusModal && modalSyllabusTitle && modalSyllabusContent) {
-        if (modalSyllabusCat) modalSyllabusCat.textContent = data.category;
-        modalSyllabusTitle.textContent = data.title;
-        modalSyllabusContent.innerHTML = data.content;
-        syllabusModal.classList.add('open');
-      }
+      if (data) openSyllabusModal(data);
     });
   });
 
-  if (closeSyllabusModal && syllabusModal) {
-    closeSyllabusModal.addEventListener('click', () => {
-      syllabusModal.classList.remove('open');
-    });
+  if (closeSyllabusModal) {
+    closeSyllabusModal.addEventListener('click', closeSyllabusModalFunc);
+  }
 
+  if (syllabusModal) {
     syllabusModal.addEventListener('click', (e) => {
-      if (e.target === syllabusModal) syllabusModal.classList.remove('open');
+      if (e.target === syllabusModal) closeSyllabusModalFunc();
     });
   }
+
+  // Global Escape key handler for all modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (rsvpModal && rsvpModal.classList.contains('active')) closeRsvpModalFunc();
+      if (syllabusModal && syllabusModal.classList.contains('active')) closeSyllabusModalFunc();
+    }
+  });
 
   /* ==========================================================================
      16. Unified Toast Notification

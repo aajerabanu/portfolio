@@ -2578,7 +2578,8 @@ body {
   transition: opacity var(--trans-fast);
 }
 
-.modal-backdrop.active {
+.modal-backdrop.active,
+.modal-backdrop.open {
   display: flex;
   opacity: 1;
 }
