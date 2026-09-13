@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kerthikdev.github.io/aajera-portfolio/sitemap.xml
