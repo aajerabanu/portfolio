@@ -13,7 +13,7 @@
 A modern, responsive, human-crafted portfolio website for **Aajera Banu S**, featuring:
 - **Default Clean Light Theme** with seamless one-click **Dark Mode** toggle.
 - **Authentic Portrait Presentation**: Natural studio framing with ambient shadows and live tech badges.
-- **Hero & Trust Metrics**: Highlighting 450+ students & engineers trained, 15+ hands-on labs, and 100% practical curriculum.
+- **Hero & Trust Metrics**: Highlighting 450+ students & engineers trained, 20+ hands-on labs, and 100% practical curriculum.
 - **Interactive 5-Stage CI/CD Pipeline Simulator**: Visualizing Git Webhook &rarr; Lint & Test &rarr; Docker Build &rarr; Terraform IaC &rarr; Zero-Downtime Deployment.
 - **Featured Infrastructure Projects**: Multi-AZ VPC Terraform blueprints, Blue-Green Docker deployments, and Nginx reverse proxy stacks with architecture modals.
 - **Dedicated Events & Workshops Page (`events.html`)**: Searchable workshops, CCNA masterclasses, live RSVP registration modals, and attendee testimonials.
