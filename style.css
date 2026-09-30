@@ -3825,136 +3825,73 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE STYLES
+   RESPONSIVE STYLES & MOBILE UI SYSTEM
+   Unified, conflict-free, mobile-first responsive architecture (1120px, 992px, 768px, 550px, 380px)
    ========================================================================== */
+
+/* Universal mobile overflow protection */
+@media (max-width: 992px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Container padding */
+  .site-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. TABLET LANDSCAPE & SMALL DESKTOP (≤ 1120px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 1120px) {
-  .nav-menu, #open-resume-btn {
-    display: none;
+  .nav-menu,
+  #open-resume-btn {
+    display: none !important;
   }
 
   .mobile-menu-toggle {
-    display: block;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 }
 
+/* --------------------------------------------------------------------------
+   2. TABLET PORTRAIT (≤ 992px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
+  /* Layout & Spacing */
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .events-hero-title {
-    font-size: 2.2rem;
-  }
-
-  .events-metrics-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-card-grid, .timeline-two-column, .contact-split-grid, .blog-cards-grid, .events-cards-grid, .events-grid-full {
-    grid-template-columns: 1fr;
-  }
-
-  .events-explore-banner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-stats-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .site-container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  .hero-title {
-    font-size: 2.1rem;
-  }
-
-  .events-hero-title {
-    font-size: 1.85rem;
-  }
-
-  .main-heading {
-    font-size: 1.8rem;
-  }
-
-  .events-metrics-row {
-    grid-template-columns: 1fr;
-  }
-
-  .curriculum-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .alert-inner, .top-banner-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .r-skills-matrix {
-    grid-template-columns: 1fr;
-  }
-
-  .r-head-links {
-    text-align: left;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .blog-filters, .events-pills-row {
-    gap: 0.4rem;
-  }
-
-  .filter-pill, .event-pill {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.85rem;
-  }
-}
-
-/* ==========================================================================
-   COMPREHENSIVE MOBILE RESPONSIVE — Full overhaul
-   ========================================================================== */
-
-/* ---- Tablet (≤ 992px) ---- */
-@media (max-width: 992px) {
-
-  /* Hero */
+  /* Hero Section */
   .hero-section {
     padding-top: 2rem;
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
     min-height: unset;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.75rem;
     text-align: center;
   }
 
   .hero-content {
     order: 1;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .hero-photo-column {
     order: 2;
     margin-top: 0;
+    display: flex;
     justify-content: center;
   }
 
@@ -3963,496 +3900,115 @@ body {
     margin: 0 auto;
   }
 
-  /* Hide floating pills on tablet — they overflow off card */
+  /* Hide floating badge pills that overflow the card on tablet */
   .floating-pill {
     display: none;
   }
 
   .availability-badge {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 1.25rem;
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.35rem;
+    line-height: 1.25;
   }
 
   .hero-lead {
-    font-size: 1rem;
-    max-width: 560px;
-    margin: 0 auto;
+    font-size: 1.02rem;
+    max-width: 580px;
+    margin: 0 auto 1.75rem;
   }
 
   .hero-actions {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
   }
 
+  /* Hero stats in a clean 2x2 grid */
+  .hero-stats-four,
   .hero-stats-row {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 420px;
+    max-width: 460px;
     margin: 0 auto;
+    gap: 1rem;
   }
 
-  .hero-stats-four {
+  /* Adapt All Main Multi-column Grids to Single Column */
+  .about-card-grid,
+  .skills-card-grid,
+  .projects-display-grid,
+  .blog-cards-grid,
+  .events-cards-grid,
+  .events-grid-full,
+  .timeline-two-column,
+  .contact-split-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Events Hero on Tablet */
+  .events-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .events-metrics-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  /* About */
-  .about-card-grid {
-    grid-template-columns: 1fr;
+  .events-explore-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 
-  /* Timeline */
-  .timeline-two-column {
-    grid-template-columns: 1fr;
+  .events-explore-banner .btn-primary {
+    width: 100%;
+    justify-content: center;
   }
 
-  /* Projects grid */
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Skills */
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Contact */
-  .contact-split-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Certs */
-  .certs-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Blog */
-  .blog-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Photo info card */
+  /* Photo Info Card Positioning */
   .photo-info-card {
-    left: 10px;
-    right: 10px;
+    left: 12px;
+    right: 12px;
     bottom: 12px;
   }
 }
 
-/* ---- Large Mobile (≤ 768px) ---- */
+/* --------------------------------------------------------------------------
+   3. MOBILE PHONES & PHABLETS (≤ 768px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-
-  /* Navbar */
-  .site-nav {
-    padding: 0 1rem;
-  }
-
-  /* Hero */
-  .hero-section {
-    padding-top: 1.5rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .hero-title {
-    font-size: 1.85rem;
-    line-height: 1.2;
-  }
-
-  .hero-lead {
-    font-size: 0.95rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn-primary, .btn-secondary, .btn-outline {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-stats-four {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.85rem;
-  }
-
-  .stat-title {
-    font-size: 1.15rem;
-  }
-
-  /* Photo */
-  .photo-card-frame {
-    max-width: 280px;
-  }
-
-  .photo-inner {
-    max-height: 380px;
-  }
-
-  /* Section headings */
-  .main-heading {
-    font-size: 1.65rem;
-  }
-
-  .section-intro {
-    text-align: center;
-  }
-
-  /* Skills */
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Certs */
-  .certs-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Resume */
-  .r-head {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .r-head-links {
-    text-align: left;
-  }
-
-  .r-skills-matrix {
-    grid-template-columns: 1fr;
-  }
-
-  /* Alert / top banner */
-  .alert-inner, .top-banner-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  /* Form */
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  /* Footer */
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  /* Blog / Events filters */
-  .blog-filters, .events-pills-row {
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-}
-
-/* ---- Small Mobile (≤ 480px) ---- */
-@media (max-width: 480px) {
-
-  .site-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  /* Hero */
-  .hero-title {
-    font-size: 1.55rem;
-  }
-
-  .hero-lead {
-    font-size: 0.88rem;
-  }
-
-  .hero-stats-four {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
-  }
-
-  .stat-title {
-    font-size: 1rem;
-  }
-
-  .stat-subtitle {
-    font-size: 0.7rem;
-  }
-
-  /* Photo */
-  .photo-card-frame {
-    max-width: 240px;
-  }
-
-  .photo-inner {
-    max-height: 320px;
-  }
-
-  /* Headings */
-  .main-heading {
-    font-size: 1.4rem;
-  }
-
-  .sub-heading {
-    font-size: 0.78rem;
-  }
-
-  .card-title {
-    font-size: 1.1rem;
-  }
-
-  /* Buttons */
-  .btn-primary, .btn-secondary, .btn-outline {
-    font-size: 0.85rem;
-    padding: 0.65rem 1.2rem;
-  }
-
-  /* Availability badge */
-  .availability-badge {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.75rem;
-  }
-
-  /* Nav notification dropdown */
-  .notif-dropdown {
-    width: calc(100vw - 2rem);
-    right: -1rem;
-  }
-
-  /* Photo info card */
-  .photo-info-card {
-    padding: 0.55rem 0.7rem;
-    gap: 0.5rem;
-  }
-
-  .info-card-name {
-    font-size: 0.8rem;
-  }
-
-  .info-card-role {
-    font-size: 0.65rem;
-  }
-
-  /* Footer */
-  .footer-brand {
-    font-size: 0.85rem;
-  }
-}
-
-/* ==========================================================================
-   PHONE VIEW — Deep Adaptive Layout (≤ 600px)
-   Specifically addresses navbar overflow, content arrangement & readability
-   ========================================================================== */
-@media (max-width: 600px) {
-
-  /* --- Prevent ALL horizontal overflow --- */
+  /* Prevent horizontal drag/overflow */
   html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-  }
-
-  /* === NAVBAR === */
-  .header-inner {
-    padding: 0 0.75rem;
-    gap: 0.4rem;
-  }
-
-  /* Hide brand text on very small screens, keep avatar */
-  .brand-name {
-    display: none;
-  }
-
-  .brand-badge {
-    display: none;
-  }
-
-  /* Hide desktop-only nav items in header-actions */
-  .blog-pill-btn {
-    display: none;
-  }
-
-  /* Hide GitHub and LinkedIn icons — moved to drawer */
-  .social-icon-btn {
-    display: none;
-  }
-
-  /* Hide Resume button — accessible in drawer */
-  #open-resume-btn {
-    display: none;
-  }
-
-  /* Compact the action cluster to just bell + theme + hamburger */
-  .header-actions {
-    gap: 0.3rem;
-  }
-
-  /* Icon buttons - compact */
-  .notif-bell-btn,
-  .theme-toggle-btn,
-  .mobile-menu-toggle {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-
-  /* === ALERT BANNER === */
-  .alert-inner,
-  .top-banner-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .alert-text {
-    font-size: 0.78rem;
-    line-height: 1.4;
-  }
-
-  .alert-actions {
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .alert-link-btn {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.75rem;
-  }
-
-  /* === HERO === */
-  .hero-section {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    text-align: center;
-  }
-
-  .hero-content {
-    order: 1;
-    padding: 0 0.5rem;
-  }
-
-  .hero-photo-column {
-    order: 2;
-    margin-top: 0;
-    justify-content: center;
-  }
-
-  .availability-badge {
-    font-size: 0.72rem;
-    padding: 0.28rem 0.7rem;
-    margin: 0 auto 1rem;
-  }
-
-  .hero-title {
-    font-size: 1.6rem;
-    line-height: 1.25;
-    margin-bottom: 0.85rem;
-  }
-
-  .hero-lead {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-  }
-
-  /* Buttons — stacked, full width */
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .btn-outline {
     width: 100%;
-    justify-content: center;
-    font-size: 0.85rem;
-    padding: 0.7rem 1rem;
+    overflow-x: hidden;
   }
 
-  /* Stats grid: 2 columns always */
-  .hero-stats-row,
-  .hero-stats-four {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-    max-width: 340px;
-    margin: 0 auto;
+  /* Spacing */
+  .site-container {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
   }
 
-  .stat-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: 0.65rem 0.5rem;
-    text-align: center;
-  }
-
-  .stat-title {
-    font-size: 1.15rem;
-  }
-
-  .stat-subtitle {
-    font-size: 0.65rem;
-    line-height: 1.3;
-  }
-
-  /* Photo Card */
-  .photo-card-frame {
-    max-width: 240px;
-    padding: 8px;
-  }
-
-  .photo-inner {
-    max-height: 300px;
-    aspect-ratio: 3 / 4;
-  }
-
-  /* Photo info card */
-  .photo-info-card {
-    left: 8px;
-    right: 8px;
-    bottom: 10px;
-    padding: 0.5rem 0.65rem;
-  }
-
-  .info-card-name {
-    font-size: 0.78rem;
-  }
-
-  .info-card-role {
-    font-size: 0.62rem;
-  }
-
-  /* === SECTIONS GENERAL === */
   .section-padding {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
 
-  .site-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  /* Typography */
+  .main-heading {
+    font-size: 1.7rem;
+    line-height: 1.25;
+  }
+
+  .sub-heading {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
   }
 
   .section-intro {
@@ -4460,304 +4016,236 @@ body {
     margin-bottom: 2rem;
   }
 
-  .sub-heading {
-    font-size: 0.75rem;
+  .section-desc {
+    font-size: 0.92rem;
+    max-width: 100%;
   }
 
-  .main-heading {
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
-
-  /* === ABOUT === */
-  .about-card-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .about-story-card {
-    padding: 1.25rem;
-  }
-
-  .card-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.85rem;
-  }
-
-  .about-story-card p {
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-
-  /* === SKILLS === */
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  /* === PROJECTS === */
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .project-card {
-    padding: 1.25rem;
-  }
-
-  /* Project action buttons */
-  .project-actions {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .project-actions a,
-  .project-actions button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* === EXPERIENCE / TIMELINE === */
-  .timeline-two-column {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  /* === CERTS === */
-  .certs-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  /* === CONTACT === */
-  .contact-split-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form select {
-    font-size: 0.9rem;
-    padding: 0.7rem 0.9rem;
-  }
-
-  /* === BLOG CARDS === */
-  .blog-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  /* Blog card actions - stack */
-  .blog-card-actions {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .blog-card-actions a,
-  .blog-card-actions button {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-
-  /* === MOBILE DRAWER === */
-  .mobile-drawer {
-    width: 88vw;
-    max-width: 340px;
-    right: -100%;
-    border-radius: 0;
-    padding: 0;
-  }
-
-  .mobile-drawer.open {
-    right: 0;
-  }
-
-  .drawer-scroll-body {
-    padding: 1.25rem 1.25rem 2.5rem;
-  }
-
-  .drawer-nav {
-    padding: 0;
-  }
-
-  .drawer-link {
-    padding: 0.75rem 0.5rem;
-    font-size: 0.95rem;
-  }
-
-  /* === NOTIFICATION DROPDOWN === */
-  .notif-dropdown {
-    width: calc(100vw - 1.5rem);
-    right: 0.75rem;
-    max-height: 70vh;
-    overflow-y: auto;
-  }
-
-  /* === FOOTER === */
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1rem;
-  }
-
-  .footer-links a {
-    font-size: 0.82rem;
-  }
-
-  /* === RESUME SECTION === */
-  .r-head {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .r-skills-matrix {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-}
-
-/* ==========================================================================
-   TARGETED PHONE FIXES — based on visual audit at 500px
-   ========================================================================== */
-@media (max-width: 550px) {
-
-  /* 1. NAVBAR — ensure hamburger is always visible, no overflow */
+  /* Header & Navigation */
   .site-header {
-    overflow: visible;
+    height: 64px;
   }
 
   .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 0 0.75rem;
-    gap: 0;
+    padding: 0 1rem;
+    height: 100%;
   }
 
-  /* Keep only avatar on brand side — hide name and badge */
-  .brand-name,
+  .brand-logo-link {
+    gap: 0.65rem;
+  }
+
+  .brand-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-name {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
   .brand-badge {
     display: none;
   }
 
-  /* Collapse header actions — hide blog pill, social icons, resume */
-  .blog-pill-btn,
-  .social-icon-btn,
-  #open-resume-btn {
-    display: none !important;
-  }
-
-  /* Always show the hamburger */
+  /* Compact header buttons */
+  .notif-bell-btn,
+  .theme-toggle-btn,
   .mobile-menu-toggle {
-    display: flex !important;
-    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
   }
 
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    flex-shrink: 0;
+  /* Hero Section */
+  .hero-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2.75rem;
   }
 
-  /* 2. PIPELINE SIMULATOR — wrap nodes to 2-column grid instead of overflow */
-  .pipeline-visual-track {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem 0.5rem;
-    overflow-x: visible;
-    justify-items: center;
-    padding: 0.5rem 0;
+  .hero-title {
+    font-size: 1.95rem;
+    line-height: 1.22;
   }
 
-  /* Hide the horizontal connecting bars on mobile */
-  .node-bar {
-    display: none;
+  .hero-lead {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 
-  .pipe-node {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .node-circle {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
-  }
-
-  .node-title {
-    font-size: 0.72rem;
-  }
-
-  /* 3. SIM HEADER — stack repo info and trigger button vertically */
-  .sim-header {
+  /* Action buttons full-width touch friendly */
+  .hero-actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 1.75rem;
     gap: 0.75rem;
   }
 
-  .sim-header .btn-primary {
+  .hero-actions .btn {
     width: 100%;
+    min-height: 48px;
     justify-content: center;
+    font-size: 0.92rem;
   }
 
-  /* 4. STATS — equal height, centered, bordered boxes */
-  .hero-stats-row,
-  .hero-stats-four {
-    display: grid;
+  /* 2x2 Stats Grid */
+  .hero-stats-four,
+  .hero-stats-row {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
+    gap: 0.75rem;
+    max-width: 100%;
   }
 
   .stat-box {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
-    padding: 0.75rem 0.5rem;
+    padding: 0.85rem 0.5rem;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .stat-title {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 800;
     line-height: 1;
     margin-bottom: 0.35rem;
   }
 
   .stat-subtitle {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     line-height: 1.3;
+  }
+
+  /* Photo Frame */
+  .photo-card-frame {
+    max-width: 275px;
+    padding: 8px;
+  }
+
+  .photo-inner {
+    max-height: 340px;
+    aspect-ratio: 3 / 4;
+  }
+
+  /* CI/CD Pipeline Simulator — Horizontal swipe track with snap */
+  .sim-container {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .sim-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .sim-header .btn-primary {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .pipeline-visual-track {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 0.5rem;
+    gap: 0.6rem;
+    scrollbar-width: thin;
+  }
+
+  .pipeline-visual-track::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .pipeline-visual-track::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+
+  .pipe-node {
+    flex: 0 0 115px;
+    min-width: 115px;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.25rem;
+  }
+
+  .node-circle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .node-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .node-badge-status {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+  }
+
+  .node-bar {
+    flex: 0 0 20px;
+    min-width: 20px;
+    height: 2px;
+    background: var(--border-color);
+    display: block;
+  }
+
+  .sim-console {
+    margin-top: 1rem;
+  }
+
+  .console-body {
+    max-height: 180px;
+    font-size: 0.78rem;
+    padding: 0.75rem;
+  }
+
+  /* Projects Showcase Cards */
+  .project-showcase-card {
+    padding: 1.25rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .project-actions a,
+  .project-actions button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
     text-align: center;
   }
 
-  /* 5. EXPERIENCE HEADER — stack date pill and location */
-  .exp-card-header,
-  .timeline-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
+  /* Blog & Articles Cards */
+  .blog-card,
+  .article-card {
+    padding: 1.25rem;
   }
 
-  /* 6. BLOG CARD ACTIONS — full width stacked */
   .blog-card-actions,
   .article-actions {
     display: flex;
@@ -4771,56 +4259,432 @@ body {
   .article-actions a,
   .article-actions button {
     width: 100%;
+    min-height: 44px;
     justify-content: center;
     text-align: center;
   }
 
-  /* 7. FOOTER LINKS — centered and wrapping cleanly */
-  .footer-links {
+  /* Events Page Elements */
+  .events-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.22;
+  }
+
+  .events-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .events-pills-row,
+  .blog-filters {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 0.5rem 1.25rem;
+    gap: 0.45rem;
+  }
+
+  .event-pill,
+  .filter-pill {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.85rem;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .event-card-actions {
+    flex-direction: column;
+    gap: 0.6rem;
     width: 100%;
   }
 
+  .event-card-actions .btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  /* Timeline & Experience */
+  .timeline-header,
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .timeline-item {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Contact & Forms — iOS auto-zoom prevention: inputs must be ≥ 16px */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .rsvp-form input,
+  .rsvp-form textarea,
+  .rsvp-form select,
+  .events-search-box input {
+    font-size: 16px !important;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .contact-info-cards {
+    gap: 0.85rem;
+  }
+
+  .contact-card-item {
+    padding: 1rem;
+  }
+
+  /* Mobile Drawer Navigation */
+  .mobile-drawer {
+    width: 86vw;
+    max-width: 340px;
+    right: -100%;
+    transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-drawer.open {
+    right: 0;
+  }
+
+  .drawer-scroll-body {
+    padding: 1.25rem 1.25rem 3rem;
+  }
+
+  .drawer-link {
+    min-height: 48px;
+    padding: 0.75rem 0.6rem;
+    font-size: 0.96rem;
+  }
+
+  /* Notification Dropdown */
+  .notif-dropdown {
+    width: calc(100vw - 1.5rem);
+    max-width: 360px;
+    right: 0.75rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  /* Modal Dialogs */
+  .modal-dialog {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 92vh;
+    margin: 1rem auto;
+    padding: 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-header-bar {
+    padding: 0.85rem 1rem;
+  }
+
+  .modal-body-scroll {
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .events-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .events-hero-actions .btn,
+  .events-hero-actions a,
+  .events-hero-actions button {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Footer */
   .footer-content {
     flex-direction: column;
-    gap: 1rem;
     align-items: flex-start;
+    gap: 1.25rem;
   }
 
-  /* 8. SECTION HEADINGS — consistent centering */
-  .section-intro {
-    text-align: center;
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    width: 100%;
   }
 
-  .section-intro .main-heading,
-  .section-intro .sub-heading {
-    text-align: center;
+  .footer-links a {
+    font-size: 0.84rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. SMALL MOBILE SCREENS (≤ 550px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 550px) {
+  /* Header Alignment */
+  .site-header {
+    height: 58px;
   }
 
-  /* 9. ABOUT — center the section badge */
-  .about-card-grid {
-    grid-template-columns: 1fr;
+  .header-inner {
+    padding: 0 0.85rem;
+    gap: 0.5rem;
   }
 
-  /* 10. SKILL TAGS — uniform wrapping */
-  .skill-tags {
+  .brand-name {
+    display: inline-block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide desktop-only elements in header */
+  .header-actions .blog-pill-btn,
+  .header-actions .social-icon-btn,
+  .site-header #open-resume-btn {
+    display: none !important;
+  }
+
+  /* Keep drawer social icons visible and touch-sized */
+  .drawer-socials .social-icon-btn {
+    display: inline-flex !important;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    font-size: 1.05rem;
+  }
+
+  .header-actions {
+    gap: 0.35rem;
+  }
+
+  .notif-bell-btn,
+  .theme-toggle-btn,
+  .mobile-menu-toggle {
+    width: 35px;
+    height: 35px;
+    font-size: 0.95rem;
+  }
+
+  /* Alert / Top Banner */
+  .alert-inner,
+  .top-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.6rem 0.85rem;
+  }
+
+  .alert-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .alert-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .alert-link-btn {
+    font-size: 0.74rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding-top: 1.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .hero-grid {
+    gap: 1.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+    line-height: 1.24;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-lead {
+    font-size: 0.88rem;
+    line-height: 1.58;
+    margin-bottom: 1.25rem;
+  }
+
+  .availability-badge {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.7rem;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Photo Frame */
+  .photo-card-frame {
+    max-width: 250px;
+    padding: 6px;
+  }
+
+  .photo-inner {
+    max-height: 300px;
+  }
+
+  .photo-info-card {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .info-card-name {
+    font-size: 0.78rem;
+  }
+
+  .info-card-role {
+    font-size: 0.62rem;
+  }
+
+  /* 2x2 Stats */
+  .hero-stats-four,
+  .hero-stats-row {
+    gap: 0.55rem;
+  }
+
+  .stat-box {
+    padding: 0.75rem 0.4rem;
+  }
+
+  .stat-title {
+    font-size: 1.25rem;
+  }
+
+  .stat-subtitle {
+    font-size: 0.66rem;
+  }
+
+  /* Section Headings */
+  .main-heading {
+    font-size: 1.45rem;
+  }
+
+  .card-title {
+    font-size: 1.12rem;
+  }
+
+  /* Tags uniform wrapping */
+  .skill-tags,
+  .card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
 
-  /* 11. PROJECT CARDS — full-width actions */
-  .project-card-footer {
-    flex-direction: column;
-    gap: 0.5rem;
+  .skill-tag,
+  .tag {
+    font-size: 0.74rem;
+    padding: 0.25rem 0.65rem;
   }
 
-  .project-card-footer a,
-  .project-card-footer button {
+  /* Events Rich Card Footer */
+  .rich-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .rich-card-footer button,
+  .rich-card-footer a {
     width: 100%;
+    min-height: 44px;
     justify-content: center;
+    text-align: center;
   }
 }
+
+/* --------------------------------------------------------------------------
+   5. ULTRA-COMPACT MOBILE SCREENS (≤ 380px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .site-container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .header-inner {
+    padding: 0 0.65rem;
+  }
+
+  .brand-name {
+    font-size: 0.86rem;
+    max-width: 120px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-lead {
+    font-size: 0.84rem;
+  }
+
+  .hero-actions .btn {
+    font-size: 0.85rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .photo-card-frame {
+    max-width: 225px;
+  }
+
+  .photo-inner {
+    max-height: 270px;
+  }
+
+  .hero-stats-four,
+  .hero-stats-row {
+    gap: 0.45rem;
+  }
+
+  .stat-box {
+    padding: 0.65rem 0.35rem;
+  }
+
+  .stat-title {
+    font-size: 1.15rem;
+  }
+
+  .stat-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .notif-bell-btn,
+  .theme-toggle-btn,
+  .mobile-menu-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.88rem;
+  }
+}
+

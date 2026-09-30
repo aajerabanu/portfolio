@@ -234,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const stage = pipelineStages[i];
         stage.node.classList.add('running');
         stage.node.querySelector('.node-badge-status').textContent = 'Running...';
+        if (stage.node.scrollIntoView) {
+          stage.node.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
 
         streamLog(`--> Stage ${i + 1}/${pipelineStages.length}: Starting ${stage.name}...`, true);
 
